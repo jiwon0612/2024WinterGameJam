@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5140a731279ce944296d6441af52c04a, type: 3}
+  m_Name: FirstBossFSM
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: 11400000, guid: ba0bb76c80ab04044ac2b69c70d9bc6b, type: 2}
+  - {fileID: 11400000, guid: 46631691174e96a4186d2f8aa980a226, type: 2}

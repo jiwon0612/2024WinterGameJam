@@ -6,7 +6,7 @@ public abstract class EntityState
     protected bool _isTriggerCall;
     
 
-    public EntityState(Entity entity)
+    public EntityState(Entity entity, int i)
     {
         _entity = entity;
         

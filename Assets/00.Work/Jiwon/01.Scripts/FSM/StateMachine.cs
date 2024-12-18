@@ -18,7 +18,7 @@ public class StateMachine : MonoBehaviour
             try
             {
                 Type type = Type.GetType(item.className);
-                var entityState = Activator.CreateInstance(type, entity) as EntityState;
+                var entityState = Activator.CreateInstance(type, entity, 0) as EntityState;
                 _stateDictionary.Add(item.stateName, entityState);
             }
             catch (Exception e)
