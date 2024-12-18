@@ -11,8 +11,8 @@ public class EntityMover : MonoBehaviour, IEntityComponent
     [SerializeField] private float xSpeed;
     [SerializeField] private float ySpeed;
         
-    private Entity _entity;
-    private Rigidbody _rigidbody;
+    protected Entity _entity;
+    protected Rigidbody _rigidbody;
 
     private Vector3 _startPos;
     private Vector3 _maxCanMoveSpace;
@@ -43,6 +43,7 @@ public class EntityMover : MonoBehaviour, IEntityComponent
     public void StopImmediately()
     {
         MoveDirection = Vector2.zero;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     public virtual void ControlMove()
