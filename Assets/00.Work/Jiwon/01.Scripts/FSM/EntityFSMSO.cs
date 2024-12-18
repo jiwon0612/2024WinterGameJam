@@ -5,7 +5,7 @@ using System;
 
 public enum StateName
 {
-    
+    Idle, Attack
 }
 
 [CreateAssetMenu(menuName = "SO/FSM")]

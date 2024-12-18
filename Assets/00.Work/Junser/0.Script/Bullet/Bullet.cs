@@ -47,7 +47,6 @@ public class Bullet : MonoBehaviour,Ipoolable
     protected virtual void SetRealPos()
     {
         realPos = _basePos;
-        print(realPos);
     }
     protected virtual void SetBasePos()
     {

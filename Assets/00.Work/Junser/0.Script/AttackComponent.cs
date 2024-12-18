@@ -3,29 +3,24 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class AttackComponent : MonoBehaviour
+public class AttackComponent : MonoBehaviour, IEntityComponent
 {
     [SerializeField]
     Transform player;
     [SerializeField]
     private Transform lunchPosition;
-    private AttackSO _currentAttackPattern;
+    private BulletSetSO _currentAttackPattern;
     [SerializeField]
-    private AttackPatternSO _attackPattern;
-    private void SetPattern()
-    {
-        _currentAttackPattern = _attackPattern.GetPattern();
-    }
-    private void Shot()
-    {
-        BulletSetSO reloadedBullet =Instantiate(_currentAttackPattern.GetBullet());
-        StartCoroutine(reloadedBullet.Shot(player.position, lunchPosition.position));
-    }
+    private List<BulletSetSO> _attackPattern;
 
-    private void Start()
+    public void Initialize(Entity entity)
     {
-        SetPattern();
-        Shot();
+        
+    }
+    public void Shot()
+    {
+        _currentAttackPattern = _attackPattern[Random.Range(0, _attackPattern.Count)];
+        StartCoroutine(_currentAttackPattern.Shot(player.position, lunchPosition.position));
     }
 }
 
