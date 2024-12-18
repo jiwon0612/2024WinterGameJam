@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6452315eeb3a3419150f1931e24633, type: 3}
+  m_Name: SprialShot
+  m_EditorClassIdentifier: 
+  patterns:
+  - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
