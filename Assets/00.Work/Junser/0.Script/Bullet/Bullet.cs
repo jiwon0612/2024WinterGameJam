@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour,Ipoolable
 {
     protected Rigidbody _rb;
     protected Vector3 _lunchPos;
@@ -15,6 +15,10 @@ public class Bullet : MonoBehaviour
 
     [SerializeField]
     protected float _speed;
+
+    string Ipoolable.PoolName => gameObject.name;
+
+    GameObject Ipoolable.ObjectPrefab => gameObject;
 
     protected virtual void Awake()
     {
@@ -55,6 +59,15 @@ public class Bullet : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(_lunchPos, _targetPos);
+    }
+
+    void Ipoolable.ResetItem()
+    {
+        transform.localPosition = Vector3.zero;
+        foreach(Transform child in transform)
+        {
+            child.localPosition = Vector3.zero;
+        }
     }
 #endif
 }
