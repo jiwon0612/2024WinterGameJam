@@ -53,6 +53,15 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""b2a3c7fb-f79c-44a5-b6dc-31f75ebc8e61"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""action"": ""LeftDash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0df3bf5f-4920-4aa0-8817-45c93888804d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_RightDash = m_Player.FindAction("RightDash", throwIfNotFound: true);
         m_Player_LeftDash = m_Player.FindAction("LeftDash", throwIfNotFound: true);
+        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_RightDash;
     private readonly InputAction m_Player_LeftDash;
+    private readonly InputAction m_Player_Fire;
     public struct PlayerActions
     {
         private @Control m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @RightDash => m_Wrapper.m_Player_RightDash;
         public InputAction @LeftDash => m_Wrapper.m_Player_LeftDash;
+        public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @LeftDash.started += instance.OnLeftDash;
             @LeftDash.performed += instance.OnLeftDash;
             @LeftDash.canceled += instance.OnLeftDash;
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +271,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @LeftDash.started -= instance.OnLeftDash;
             @LeftDash.performed -= instance.OnLeftDash;
             @LeftDash.canceled -= instance.OnLeftDash;
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -267,5 +296,6 @@ public partial class @Control: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnRightDash(InputAction.CallbackContext context);
         void OnLeftDash(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
     }
 }
