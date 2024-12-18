@@ -16,6 +16,7 @@ public class Player : Entity
 
     public PlayerMover Mover { get; private set; }
     public PlayerRenderer Renderer { get; private set; }
+    public AttackComponent AttackComp { get; private set; }
 
     private Tween _rotateTween;
     private float _currentDashTime;
@@ -32,6 +33,7 @@ public class Player : Entity
         
         Mover = GetCompo<PlayerMover>();
         Renderer = GetCompo<PlayerRenderer>();
+        AttackComp = GetCompo<AttackComponent>();
 
         input.OnRightDashEvent += TryRightDash;
         input.OnLeftDashEvent += TryLeftDash;
@@ -116,6 +118,6 @@ public class Player : Entity
         if (_isDash) return;
         if (_currentFireTime < fireCollTime) return;
         _currentFireTime = 0;
-        Debug.Log("슈우웃");
+        AttackComp.Shot();
     }
 }
