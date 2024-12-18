@@ -18,7 +18,7 @@ public class AttackComponent : MonoBehaviour
     }
     private void Shot()
     {
-        BulletSetSO reloadedBullet =_currentAttackPattern.GetBullet();
+        BulletSetSO reloadedBullet =Instantiate(_currentAttackPattern.GetBullet());
         reloadedBullet.Shot(player.position, lunchPosition.position);
     }
 

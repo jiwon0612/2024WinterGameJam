@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullets:
   - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
+  - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
+  - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
+  - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
   shotType: 0
   mainPoint: {x: 0, y: 0, z: 0}
   subPoint: {x: 0, y: 0, z: 0}

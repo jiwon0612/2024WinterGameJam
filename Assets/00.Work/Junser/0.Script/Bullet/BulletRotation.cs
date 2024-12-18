@@ -18,13 +18,18 @@ public class BulletRotation : MonoBehaviour
             rotateBullet[i].localPosition = postion*radious;
         }
     }
-    private void Start()
+    private void OnEnable()
     {
         foreach (Transform child in transform)
         {
             rotateBullet.Add(child);
         }
         SetRadious();
+    }
+
+    private void OnDisable()
+    {
+        rotateBullet.Clear();
     }
 
     protected virtual void Rotate()
