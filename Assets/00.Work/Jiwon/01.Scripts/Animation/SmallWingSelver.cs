@@ -20,10 +20,14 @@ public class SmallWingSelver : MonoBehaviour, IRigAnimControl
         _renderer = renderer;
 
         _dampedTransforms = transform.parent.GetComponentsInChildren<DampedTransform>().ToList();
-        if (isRight)
+        if (!isRight)
             rotationValue *= -1;
         
-        transform.rotation = Quaternion.Euler(0, 0, rotationValue);
+    }
+
+    private void Start()
+    {
+        transform.localRotation = Quaternion.Euler(0, 0, rotationValue);
     }
 
     public void SetFoldWing(bool isFolded)
