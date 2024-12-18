@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Serialization;
 
 public enum WingState
 {
     Idle,
     Winging,
     Fold,
-    Unfold
+    Unfold,
+    SlowFold
 }
 
 public class PlayerRenderer : EntityRenderer
 {
     private EntityRenderer _renderer;
 
-    private WingState _currentState;
+    public WingState CurrentState;
 
     private bool _isChangeState;
     private bool _isWinging;
@@ -29,7 +31,7 @@ public class PlayerRenderer : EntityRenderer
         TailRig = GetRigComp<SmallWingRig>("TailWingRig");
         MiddleWing = GetRigComp<SmallWingRig>("MiddleWingRig");
         
-        _currentState = WingState.Idle;
+        CurrentState = WingState.Idle;
         OnAnimationTrigger += Trigger;
         EnterState();
     }
@@ -43,7 +45,7 @@ public class PlayerRenderer : EntityRenderer
     {
         if (_isChangeState) return;
         
-        switch (_currentState)
+        switch (CurrentState)
         {
             case WingState.Idle:
                 break;
@@ -53,14 +55,16 @@ public class PlayerRenderer : EntityRenderer
                 break;
             case WingState.Unfold:
                 break;
+            case WingState.SlowFold:
+                break;
         }
     }
     
     private void EnterState()
     {
-        Animator.SetBool(_currentState.ToString(), true);
+        Animator.SetBool(CurrentState.ToString(), true);
         
-        switch (_currentState)
+        switch (CurrentState)
         {
             case WingState.Idle:
                 break;
@@ -71,14 +75,16 @@ public class PlayerRenderer : EntityRenderer
                 break;
             case WingState.Unfold:
                 break;
+            case WingState.SlowFold:
+                break;
         }
     }
     
     private void ExitState()
     {
-        Animator.SetBool(_currentState.ToString(), false);
+        Animator.SetBool(CurrentState.ToString(), false);
 
-        switch (_currentState)
+        switch (CurrentState)
         {
             case WingState.Idle:
                 break;
@@ -89,13 +95,15 @@ public class PlayerRenderer : EntityRenderer
                 break;
             case WingState.Unfold:
                 break;
+            case WingState.SlowFold:
+                break;
         }
         
     }
     
     private void Trigger()
     {
-        switch (_currentState)
+        switch (CurrentState)
         {
             case WingState.Idle:
                 break;
@@ -107,6 +115,8 @@ public class PlayerRenderer : EntityRenderer
             case WingState.Unfold:
                 ChangeState(WingState.Idle);
                 break;
+            case WingState.SlowFold:
+                break;
         }
     }
     
@@ -114,7 +124,7 @@ public class PlayerRenderer : EntityRenderer
     {
         _isChangeState = true;
         ExitState();
-        _currentState = newState;
+        CurrentState = newState;
         EnterState();
         _isChangeState = false;
     }

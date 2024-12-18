@@ -19,13 +19,14 @@ public class EntityMover : MonoBehaviour, IEntityAfterInitable
     private Vector3 _minCanMoveSpace;
     private bool _isInit = false;
     
-    public Vector2 MoveDirection { get; private set; }
+    public NotifyValue<Vector2> MoveDirection { get; private set; }
     public bool IsCanMove { get; set; }
 
     public void Initialize(Entity entity)
     {
         _entity = entity;
         _rigidbody = GetComponent<Rigidbody>();
+        MoveDirection = new NotifyValue<Vector2>();
         _startPos = transform.position;
         
         _isInit = true;
@@ -42,12 +43,12 @@ public class EntityMover : MonoBehaviour, IEntityAfterInitable
 
     public virtual void SetMove(Vector2 dir)
     {
-        MoveDirection = dir;
+        MoveDirection.Value = dir;
     }
 
     public void StopImmediately()
     {
-        MoveDirection = Vector2.zero;
+        MoveDirection.Value = Vector2.zero;
         _rigidbody.velocity = Vector3.zero;
     }
 
@@ -57,7 +58,7 @@ public class EntityMover : MonoBehaviour, IEntityAfterInitable
         
         if (IsCanMove)
         {
-            _rigidbody.velocity = MoveDirection * xSpeed;
+            _rigidbody.velocity = MoveDirection.Value * xSpeed;
         }
     }
 

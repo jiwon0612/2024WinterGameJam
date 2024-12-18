@@ -2154,6 +2154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  CurrentState: 0
 --- !u!1 &824410366
 GameObject:
   m_ObjectHideFlags: 0
@@ -4190,7 +4191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: ac2b8ebbae69cce4983960bf0ac3194c, type: 2}
-  rotateValue: 0
+  rotateValue: 35
+  lerpSpeed: 0.25
 --- !u!1 &1632154101
 GameObject:
   m_ObjectHideFlags: 0

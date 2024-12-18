@@ -29,7 +29,6 @@ public class PlayerMover : EntityMover
     {
         StopImmediately();
         IsCanMove = false;
-        Debug.Log("Dahs");
         _rigidbody.AddForce(new Vector3(xDir, 0f) * dashSpeed, ForceMode.Impulse);
         _renderer.transform.DOLocalRotate(new Vector3(0,0,-xDir * 360), dashTime, RotateMode.LocalAxisAdd).SetEase(Ease.InOutQuad);
         StartCoroutine(DashCoroutine(callback));
