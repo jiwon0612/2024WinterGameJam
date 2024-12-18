@@ -26,7 +26,7 @@ public class SmallWingSelver : MonoBehaviour
 
     private void Start()
     {
-        transform.localRotation = Quaternion.Euler(0, 0, rotationValue);
+        transform.localRotation = Quaternion.Euler(0, rotationValue, 0);
     }
 
     public void SetFoldWing(bool isFolded)

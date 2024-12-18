@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-public class EntityMover : MonoBehaviour, IEntityComponent
+public class EntityMover : MonoBehaviour, IEntityAfterInitable
 {
     [Header("MoveSetting")] 
     [SerializeField] private float maxXMove;
@@ -33,6 +33,11 @@ public class EntityMover : MonoBehaviour, IEntityComponent
         
         _minCanMoveSpace = new Vector3(_startPos.x - maxXMove, _startPos.y - maxYMove, _startPos.z);
         _maxCanMoveSpace = new Vector3(_startPos.x + maxXMove, _startPos.y + maxYMove, _startPos.z);
+    }
+
+    public virtual void AfterInit()
+    {
+        
     }
 
     public virtual void SetMove(Vector2 dir)
