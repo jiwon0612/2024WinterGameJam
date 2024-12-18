@@ -1,16 +1,16 @@
+
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu ( menuName = "SO/BulletSet")]
 public class BulletSetSO : ScriptableObject
 {
-    public List<Bullet> bullets;
+    public Bullet defaltBullet;
     public ShotType shotType;
+    public int shotAmount;
+    public string _poolNameSet;
 
     [HideIfEnum("shotType", (int) ShotType.POINT, (int) ShotType.CICLE)]
     public Vector3 mainPoint;
@@ -23,49 +23,53 @@ public class BulletSetSO : ScriptableObject
     [HideIfEnum("shotType", (int)ShotType.POINT, (int) ShotType.AREA)]
     public float radius;
 
-    public void Shot(Vector3 targetPos, Vector3 lunchpos)
+    public IEnumerator Shot(Vector3 targetPos, Vector3 lunchpos)
     {
         switch (shotType)
         {
             case ShotType.POINT:
-                ShotSet(targetPos, lunchpos); 
-                break;
+                return ShotSet(targetPos, lunchpos);
             case ShotType.CICLE:
-                ShotSet(targetPos, radius, lunchpos);
-                break;
+                return ShotSet(targetPos, radius, lunchpos);
             case ShotType.CICLE_UNTARGET:
-                ShotSet(mainPoint, radius, lunchpos);
-                break;
+                return ShotSet(mainPoint, radius, lunchpos);
             case ShotType.AREA:
-                ShotSet(mainPoint, subPoint, lunchpos);
-                break;
+                return ShotSet(mainPoint, subPoint, lunchpos);
+            default:
+                return null;
         }
     }
     public IEnumerator ShotSet(Vector3 shotpoint, Vector3 lunchPos)//점 타격
     {
-        foreach (Bullet bullet in bullets)
+        for (int i = 0; i<shotAmount;i++)
         {
-            bullet.Lunch(shotpoint, lunchPos);
+            Bullet singleAmmo = PoolManager.Instance.Pop(_poolNameSet) as Bullet;
+            singleAmmo.gameObject.SetActive(true);
+            singleAmmo.Lunch(shotpoint, lunchPos);
             yield return new WaitForSeconds(shotDelay);
         }
         yield return null;
     }
     public IEnumerator ShotSet(Vector3 center, float radius, Vector3 lunchPos)//원 타격
     {
-        foreach (Bullet bullet in bullets)
+        for (int i = 0; i < shotAmount; i++)
         {
-            Vector3 position = Random.insideUnitSphere*radius;
-            bullet.Lunch(center + position, lunchPos);
+            Bullet singleAmmo = PoolManager.Instance.Pop(_poolNameSet) as Bullet;
+            Vector3 position = Random.insideUnitSphere * radius;
+            singleAmmo.gameObject.SetActive(true);
+            singleAmmo.Lunch(center + position, lunchPos);
             yield return new WaitForSeconds(shotDelay);
         }
         yield return null;
     }
     public IEnumerator ShotSet(Vector3 shotClamp1, Vector3 shotClamp2, Vector3 lunchPos)//면 타격
     {
-        foreach (Bullet bullet in bullets)
+        for (int i = 0; i < shotAmount; i++)
         {
+            Bullet singleAmmo = PoolManager.Instance.Pop(_poolNameSet) as Bullet;
             Vector3 position =new Vector3( Random.Range(shotClamp1.x, shotClamp2.x), Random.Range(shotClamp2.y, shotClamp2.y), 0);
-            bullet.Lunch(position, lunchPos);
+            singleAmmo.gameObject.SetActive(true);
+            singleAmmo.Lunch(position, lunchPos);
             yield return new WaitForSeconds(shotDelay);
         }
         yield return null;

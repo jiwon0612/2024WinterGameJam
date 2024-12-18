@@ -19,7 +19,7 @@ public class AttackComponent : MonoBehaviour
     private void Shot()
     {
         BulletSetSO reloadedBullet =Instantiate(_currentAttackPattern.GetBullet());
-        reloadedBullet.Shot(player.position, lunchPosition.position);
+        StartCoroutine(reloadedBullet.Shot(player.position, lunchPosition.position));
     }
 
     private void Start()

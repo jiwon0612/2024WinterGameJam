@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec581ca6360aea04d8afd6168e2be7f6, type: 3}
-  m_Name: BulletList
+  m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
+  m_Name: StraghtBullet
   m_EditorClassIdentifier: 
-  list:
-  - {fileID: 11400000, guid: 2b70d2a5c7b37694a83a2b33ccda71f8, type: 2}
-  - {fileID: 11400000, guid: 489baf06404a49245bb28221bb1c155b, type: 2}
+  poolName: StraghtBullet
+  prefab: {fileID: 4026667296363437275, guid: 21a279cd533458a4fb8b9ff1833d89e7, type: 3}
+  count: 20

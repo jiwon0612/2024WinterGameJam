@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 631c1d0b64dfe7f4c94c4d82d3dff892, type: 3}
-  m_Name: BulletSet
+  m_Name: straght
   m_EditorClassIdentifier: 
-  bullets:
-  - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
-  - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
-  - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
-  - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
+  defaltBullet: {fileID: 6977675867268656638, guid: 21a279cd533458a4fb8b9ff1833d89e7,
+    type: 3}
   shotType: 0
+  shotAmount: 5
+  _poolNameSet: StraghtBullet
   mainPoint: {x: 0, y: 0, z: 0}
   subPoint: {x: 0, y: 0, z: 0}
-  shotDelay: 0.1
+  shotDelay: 1
   radius: 0

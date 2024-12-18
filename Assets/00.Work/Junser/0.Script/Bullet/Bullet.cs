@@ -54,20 +54,19 @@ public class Bullet : MonoBehaviour,Ipoolable
     {
         _basePos += Vector3.forward * _speed;
     }
+    void Ipoolable.ResetItem()
+    {
+        transform.localPosition = Vector3.zero;
+        foreach (Transform child in transform)
+        {
+            child.localPosition = Vector3.zero;
+        }
+    }
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(_lunchPos, _targetPos);
-    }
-
-    void Ipoolable.ResetItem()
-    {
-        transform.localPosition = Vector3.zero;
-        foreach(Transform child in transform)
-        {
-            child.localPosition = Vector3.zero;
-        }
     }
 #endif
 }
