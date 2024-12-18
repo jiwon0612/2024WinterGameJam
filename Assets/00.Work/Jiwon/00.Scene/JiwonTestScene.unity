@@ -4198,6 +4198,8 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: ac2b8ebbae69cce4983960bf0ac3194c, type: 2}
   rotateValue: 35
   lerpSpeed: 0.25
+  dashCollTime: 5
+  fireCollTime: 2
 --- !u!1 &1632154101
 GameObject:
   m_ObjectHideFlags: 0

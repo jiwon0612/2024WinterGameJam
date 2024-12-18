@@ -11,23 +11,31 @@ public class Player : Entity
     [Header("Setting")] 
     [SerializeField] private float rotateValue;
     [SerializeField] private float lerpSpeed;
+    [SerializeField] private float dashCollTime;
+    [SerializeField] private float fireCollTime;
 
     public PlayerMover Mover { get; private set; }
     public PlayerRenderer Renderer { get; private set; }
 
     private Tween _rotateTween;
+    private float _currentDashTime;
+    private float _currentFireTime;
 
     private bool _isDash;
 
     protected override void AfterInitComp()
     {
         base.AfterInitComp();
-
+        
+        _currentDashTime = dashCollTime;
+        _currentFireTime = fireCollTime;
+        
         Mover = GetCompo<PlayerMover>();
         Renderer = GetCompo<PlayerRenderer>();
 
         input.OnRightDashEvent += TryRightDash;
         input.OnLeftDashEvent += TryLeftDash;
+        input.OnFireEvent += TryFire;
         Mover.OnWingingEvent.AddListener(Winging);
         Mover.MoveDirection.OnValueChanged += HandleRotatePlayer;
     }
@@ -36,6 +44,7 @@ public class Player : Entity
     {
         Mover.OnWingingEvent.RemoveListener(Winging);
         Mover.MoveDirection.OnValueChanged -= HandleRotatePlayer;
+        input.OnFireEvent -= TryFire;
         input.OnRightDashEvent -= TryRightDash;
         input.OnLeftDashEvent -= TryLeftDash;
     }
@@ -61,12 +70,20 @@ public class Player : Entity
     private void Update()
     {
         Mover.SetMove(input.MoveDirection);
+        if (_currentDashTime < dashCollTime)
+            _currentDashTime += Time.deltaTime;
+
+        if (_currentFireTime < fireCollTime)
+            _currentFireTime += Time.deltaTime;
     }
 
     private void Winging() => Renderer.ChangeState(WingState.Winging);
 
     private void TryRightDash()
     {
+        if (_currentDashTime < dashCollTime) return;
+        
+        _currentDashTime = 0;
         Renderer.TailRig.SetFold(true);
         Renderer.ChangeState(WingState.Fold);
         _isDash = true;
@@ -80,6 +97,9 @@ public class Player : Entity
 
     private void TryLeftDash()
     {
+        if (_currentDashTime < dashCollTime) return;
+        
+        _currentDashTime = 0;
         Renderer.TailRig.SetFold(true);
         Renderer.ChangeState(WingState.Fold);
         _isDash = true;
@@ -89,5 +109,13 @@ public class Player : Entity
             Renderer.TailRig.SetFold(false);
             Renderer.ChangeState(WingState.Unfold);
         });
+    }
+    
+    private void TryFire()
+    {
+        if (_isDash) return;
+        if (_currentFireTime < fireCollTime) return;
+        _currentFireTime = 0;
+        Debug.Log("슈우웃");
     }
 }
