@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 public class EntityRenderer : MonoBehaviour, IEntityAfterInitable
 {
-    public Entity entity;
+    [HideInInspector] public Entity entity;
     private Dictionary<string, IRigAnimControl> _rigControls;
     public Animator Animator { get; private set; }
 

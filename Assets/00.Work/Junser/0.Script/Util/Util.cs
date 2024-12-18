@@ -18,14 +18,10 @@ public class Util
         return result;
     }
     
-    public static float InverseVectorLerp(Vector3 a, Vector3 b, Vector3 value)
+    public static float InverseVectorLerp(Vector3 start, Vector3 end, float value)
     {
-        Vector3 ab = b - a;
-        Vector3 av = value - a;
+        if ((end - start).magnitude == 0) return 0f; 
 
-        if (ab.magnitude == 0) return 0f; 
-
-        float dotProduct = Vector3.Dot(av, ab.normalized); 
-        return Mathf.Clamp01(dotProduct / ab.magnitude);    
+        return Mathf.Abs(value / (end - start).magnitude);    
     }
 }

@@ -3,19 +3,24 @@ using UnityEngine;
 public class CurvedBullet : Bullet
 {
     private float bezierScale=1;
+    private Vector3 way1Offset, way2Offset;
 
+    private void OnEnable()
+    {
+        way1Offset = Random.insideUnitSphere * bezierScale;
+        way2Offset = Random.insideUnitSphere * bezierScale;
+        bezierScale = (_targetPos - _lunchPos).magnitude / 30;
+    }
     protected override void SetRealPos()
     {
-        bezierScale = (_targetPos - _lunchPos).magnitude/30;
-        float currentReached = Util.InverseVectorLerp(_lunchPos, _targetPos, _basePos);
+        float currentReached = Util.InverseVectorLerp(_lunchPos, _targetPos, _basePos.z);
         realPos = Util.CubicBezierCurve(
             new Vector3(0, 0, 0),
-            new Vector3(0, 15f, 5f) + Random.insideUnitSphere,
-            new Vector3(0,1, 7.5f) + Random.insideUnitSphere,
+            new Vector3(0, 15f, 5f) + way1Offset,
+            new Vector3(0,1, 7.5f) + way2Offset,
             new Vector3(0,0,30),
             currentReached) * bezierScale;
 
-        print(realPos);
     }
 #if UNITY_EDITOR
     void OnDrawGizmos()

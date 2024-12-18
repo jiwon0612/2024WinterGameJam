@@ -9,6 +9,7 @@ public class PlayerInputSO : ScriptableObject, IPlayerActions
     public Vector2 MoveDirection { get; private set; }
     public event Action OnRightDashEvent;
     public event Action OnLeftDashEvent;
+    public event Action OnFireEvent;
     
     private Control _control;
 
@@ -37,5 +38,11 @@ public class PlayerInputSO : ScriptableObject, IPlayerActions
     {
         if (context.performed)
             OnLeftDashEvent?.Invoke();
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            OnFireEvent?.Invoke();
     }
 }

@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour,Ipoolable
     protected float _totalLength;
     [SerializeField]
     protected Vector3 _targetPos;
-
+    private bool started = false;
     [SerializeField]
     protected float _speed;
 
@@ -20,11 +20,6 @@ public class Bullet : MonoBehaviour,Ipoolable
 
     GameObject Ipoolable.ObjectPrefab => gameObject;
 
-    protected virtual void Awake()
-    {
-        _rb = GetComponent<Rigidbody>();
-        transform.LookAt(_targetPos);
-    }
     public void Lunch(Vector3 targetPos, Vector3 lunchPos)
     {
         if (gameObject == null)
@@ -32,7 +27,10 @@ public class Bullet : MonoBehaviour,Ipoolable
         _targetPos = targetPos;
         _lunchPos = lunchPos;
         transform.position = _lunchPos;
+        _basePos = Vector3.zero;
+        transform.position = _lunchPos;
         transform.LookAt(_targetPos);
+        transform.rotation *= Quaternion.Euler(0, 0, Random.Range(0, 360f));
     }
 
     public void FixedUpdate()
@@ -49,6 +47,7 @@ public class Bullet : MonoBehaviour,Ipoolable
     protected virtual void SetRealPos()
     {
         realPos = _basePos;
+        print(realPos);
     }
     protected virtual void SetBasePos()
     {
