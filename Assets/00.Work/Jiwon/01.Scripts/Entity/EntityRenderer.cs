@@ -9,11 +9,16 @@ public class EntityRenderer : MonoBehaviour, IEntityComponent
 {
     protected Entity _entity;
     private Dictionary<string, IRigAnimControl> _rigControls;
+    public Animator Animator { get; private set; }
+
+    public Action OnAnimationTrigger;
 
     public void Initialize(Entity entity)
     {
         _entity = entity;
 
+        Animator = GetComponent<Animator>();
+        
         _rigControls = new Dictionary<string, IRigAnimControl>();
         GetComponentsInChildren<IRigAnimControl>(true).ToList()
             .ForEach((rig) => _rigControls.Add(rig.RigObject.name, rig));
@@ -35,5 +40,10 @@ public class EntityRenderer : MonoBehaviour, IEntityComponent
 
         Debug.LogError($"{name} not found");
         return default(T);
+    }
+
+    public void AnimationTrigger()
+    {
+        OnAnimationTrigger?.Invoke();
     }
 }

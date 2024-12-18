@@ -43,6 +43,7 @@ public class EntityMover : MonoBehaviour, IEntityComponent
     public void StopImmediately()
     {
         MoveDirection = Vector2.zero;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     public virtual void ControlMove()

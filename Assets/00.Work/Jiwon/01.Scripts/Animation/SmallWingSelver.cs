@@ -7,7 +7,8 @@ using UnityEngine.Animations.Rigging;
 
 public class SmallWingSelver : MonoBehaviour, IRigAnimControl
 {
-    [Header("Setting")] [SerializeField] private float rotationValue;
+    [Header("Setting")] 
+    [SerializeField] private float rotationValue;
     [SerializeField] private bool isRight;
 
     private EntityRenderer _renderer;
@@ -20,9 +21,12 @@ public class SmallWingSelver : MonoBehaviour, IRigAnimControl
         _renderer = renderer;
 
         _dampedTransforms = transform.parent.GetComponentsInChildren<DampedTransform>().ToList();
-        if (!isRight)
+        if (isRight == false)
+        {
             rotationValue *= -1;
+        }
         
+        SetFoldWing(false);
     }
 
     private void Start()
