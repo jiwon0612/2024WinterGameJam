@@ -55,7 +55,7 @@ public class BulletSetSO : ScriptableObject
         for (int i = 0; i < shotAmount; i++)
         {
             Bullet singleAmmo = PoolManager.Instance.Pop(_poolNameSet) as Bullet;
-            Vector3 position = Random.insideUnitSphere * radius;
+            Vector3 position = Random.insideUnitCircle * radius;
             singleAmmo.gameObject.SetActive(true);
             singleAmmo.Lunch(center + position, lunchPos);
             yield return new WaitForSeconds(shotDelay);

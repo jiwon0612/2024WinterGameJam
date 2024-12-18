@@ -15,7 +15,7 @@ MonoBehaviour:
   defaltBullet: {fileID: 6473057022137235133, guid: d6da1b0273a9ca146a843536dbf07f0d,
     type: 3}
   shotType: 1
-  shotAmount: 8
+  shotAmount: 5
   _poolNameSet: BezierBullet
   mainPoint: {x: 0, y: 0, z: 0}
   subPoint: {x: 0, y: 0, z: 0}
