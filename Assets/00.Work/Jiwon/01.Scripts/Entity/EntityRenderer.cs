@@ -4,30 +4,52 @@ using UnityEngine;
 using System;
 using System.Linq;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Serialization;
 
-public class EntityRenderer : MonoBehaviour, IEntityComponent
+public class EntityRenderer : MonoBehaviour, IEntityAfterInitable
 {
-    protected Entity _entity;
-    private Dictionary<Type, IRigAnimControl> _rigControls;
+    public Entity entity;
+    private Dictionary<string, IRigAnimControl> _rigControls;
+    public Animator Animator { get; private set; }
+
+    public Action OnAnimationTrigger;
     
     public void Initialize(Entity entity)
     {
-        _entity = entity;
+        this.entity = entity;
+
+        Animator = GetComponent<Animator>();
         
-        _rigControls = new Dictionary<Type, IRigAnimControl>();
-        GetComponentsInChildren<IRigAnimControl>(true).ToList().ForEach((rig) => _rigControls.Add(rig.GetType(), rig));
+        _rigControls = new Dictionary<string, IRigAnimControl>();
+        GetComponentsInChildren<IRigAnimControl>(true).ToList()
+            .ForEach((rig) => _rigControls.Add(rig.RigObject.name, rig));
+        
+        RigCompInit();
     }
 
-    public T GetRigComp<T>(Type findType) where T : IRigAnimControl
+    public virtual void AfterInit()
     {
-        if (_rigControls.TryGetValue(typeof(T), out IRigAnimControl rigControl))
+        
+    }
+
+    private void RigCompInit()
+    {
+        _rigControls.Values.ToList().ForEach((rig) => rig.InitAnimControl(this));
+    }
+    
+    public T GetRigComp<T>(string name) where T : IRigAnimControl
+    {
+        if (_rigControls.TryGetValue(name, out IRigAnimControl rig))
         {
-            return (T)rigControl;
+            return (T)rig;
         }
-        else
-        {
-            Debug.LogError($"{typeof(T)} not found");
-            return default;
-        }
+
+        Debug.LogError($"{name} not found");
+        return default(T);
+    }
+
+    public void AnimationTrigger()
+    {
+        OnAnimationTrigger?.Invoke();
     }
 }

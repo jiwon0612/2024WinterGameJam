@@ -7,6 +7,8 @@ using static Control;
 public class PlayerInputSO : ScriptableObject, IPlayerActions
 {
     public Vector2 MoveDirection { get; private set; }
+    public event Action OnRightDashEvent;
+    public event Action OnLeftDashEvent;
     
     private Control _control;
 
@@ -23,5 +25,17 @@ public class PlayerInputSO : ScriptableObject, IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         MoveDirection = context.ReadValue<Vector2>();
+    }
+
+    public void OnRightDash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            OnRightDashEvent?.Invoke();
+    }
+
+    public void OnLeftDash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            OnLeftDashEvent?.Invoke();
     }
 }
