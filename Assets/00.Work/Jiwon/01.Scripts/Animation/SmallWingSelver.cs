@@ -5,21 +5,16 @@ using System;
 using System.Linq;
 using UnityEngine.Animations.Rigging;
 
-public class SmallWingSelver : MonoBehaviour, IRigAnimControl
+public class SmallWingSelver : MonoBehaviour
 {
     [Header("Setting")] 
     [SerializeField] private float rotationValue;
     [SerializeField] private bool isRight;
 
-    private EntityRenderer _renderer;
     private List<DampedTransform> _dampedTransforms;
 
-    public GameObject RigObject => gameObject;
-
-    public void InitAnimControl(EntityRenderer renderer)
+    private void Awake()
     {
-        _renderer = renderer;
-
         _dampedTransforms = transform.parent.GetComponentsInChildren<DampedTransform>().ToList();
         if (isRight == false)
         {

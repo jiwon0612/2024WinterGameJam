@@ -4,18 +4,19 @@ using UnityEngine;
 using System;
 using System.Linq;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Serialization;
 
-public class EntityRenderer : MonoBehaviour, IEntityComponent
+public class EntityRenderer : MonoBehaviour, IEntityAfterInitable
 {
-    protected Entity _entity;
+    public Entity entity;
     private Dictionary<string, IRigAnimControl> _rigControls;
     public Animator Animator { get; private set; }
 
     public Action OnAnimationTrigger;
-
+    
     public void Initialize(Entity entity)
     {
-        _entity = entity;
+        this.entity = entity;
 
         Animator = GetComponent<Animator>();
         
@@ -24,6 +25,11 @@ public class EntityRenderer : MonoBehaviour, IEntityComponent
             .ForEach((rig) => _rigControls.Add(rig.RigObject.name, rig));
         
         RigCompInit();
+    }
+
+    public virtual void AfterInit()
+    {
+        
     }
 
     private void RigCompInit()

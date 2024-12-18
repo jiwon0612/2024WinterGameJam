@@ -34,22 +34,24 @@ public class Player : Entity
 
     private void TryRightDash()
     {
+        Renderer.TailRig.SetFold(true);
         var rig = Renderer.GetRigComp<BigWingSolver>("BigWingRig");
         rig.ChangeState(WingState.Fold);
         Mover.Dash(1, () =>
         {
-            Debug.Log("Dd");
+            Renderer.TailRig.SetFold(false);
             rig.ChangeState(WingState.Unfold);
         });
     }
 
     private void TryLeftDash()
     {
+        Renderer.TailRig.SetFold(true);
         var rig = Renderer.GetRigComp<BigWingSolver>("BigWingRig");
         rig.ChangeState(WingState.Fold);
         Mover.Dash(-1, () =>
         {
-            Debug.Log("dd");
+            Renderer.TailRig.SetFold(false);
             rig.ChangeState(WingState.Unfold);
         });
     }
