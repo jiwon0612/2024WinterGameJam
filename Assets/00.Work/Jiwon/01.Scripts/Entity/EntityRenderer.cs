@@ -8,26 +8,32 @@ using UnityEngine.Animations.Rigging;
 public class EntityRenderer : MonoBehaviour, IEntityComponent
 {
     protected Entity _entity;
-    private Dictionary<Type, IRigAnimControl> _rigControls;
-    
+    private Dictionary<string, IRigAnimControl> _rigControls;
+
     public void Initialize(Entity entity)
     {
         _entity = entity;
+
+        _rigControls = new Dictionary<string, IRigAnimControl>();
+        GetComponentsInChildren<IRigAnimControl>(true).ToList()
+            .ForEach((rig) => _rigControls.Add(rig.RigObject.name, rig));
         
-        _rigControls = new Dictionary<Type, IRigAnimControl>();
-        GetComponentsInChildren<IRigAnimControl>(true).ToList().ForEach((rig) => _rigControls.Add(rig.GetType(), rig));
+        RigCompInit();
     }
 
-    public T GetRigComp<T>(Type findType) where T : IRigAnimControl
+    private void RigCompInit()
     {
-        if (_rigControls.TryGetValue(typeof(T), out IRigAnimControl rigControl))
+        _rigControls.Values.ToList().ForEach((rig) => rig.InitAnimControl(this));
+    }
+    
+    public T GetRigComp<T>(string name) where T : IRigAnimControl
+    {
+        if (_rigControls.TryGetValue(name, out IRigAnimControl rig))
         {
-            return (T)rigControl;
+            return (T)rig;
         }
-        else
-        {
-            Debug.LogError($"{typeof(T)} not found");
-            return default;
-        }
+
+        Debug.LogError($"{name} not found");
+        return default(T);
     }
 }

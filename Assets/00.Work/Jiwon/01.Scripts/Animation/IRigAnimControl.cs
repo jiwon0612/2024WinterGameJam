@@ -5,5 +5,6 @@ using System;
 
 public interface IRigAnimControl
 {
-    public IRigAnimControl InitAnimControl();
+    public GameObject RigObject { get;}
+    public void InitAnimControl(EntityRenderer renderer);
 }

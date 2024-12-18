@@ -35,6 +35,24 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RightDash"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a89574e-f432-45db-8f40-a7a7bb2068a0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftDash"",
+                    ""type"": ""Button"",
+                    ""id"": ""94766944-1928-4aa3-b9ee-626e2d5b4d90"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +110,28 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e245646a-4c41-46d1-9724-d7bb8d7002bd"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightDash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00cc0524-c409-4366-84f3-098aa7dcab1d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftDash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +141,8 @@ public partial class @Control: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_RightDash = m_Player.FindAction("RightDash", throwIfNotFound: true);
+        m_Player_LeftDash = m_Player.FindAction("LeftDash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +205,15 @@ public partial class @Control: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_RightDash;
+    private readonly InputAction m_Player_LeftDash;
     public struct PlayerActions
     {
         private @Control m_Wrapper;
         public PlayerActions(@Control wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @RightDash => m_Wrapper.m_Player_RightDash;
+        public InputAction @LeftDash => m_Wrapper.m_Player_LeftDash;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +226,12 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @RightDash.started += instance.OnRightDash;
+            @RightDash.performed += instance.OnRightDash;
+            @RightDash.canceled += instance.OnRightDash;
+            @LeftDash.started += instance.OnLeftDash;
+            @LeftDash.performed += instance.OnLeftDash;
+            @LeftDash.canceled += instance.OnLeftDash;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -187,6 +239,12 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @RightDash.started -= instance.OnRightDash;
+            @RightDash.performed -= instance.OnRightDash;
+            @RightDash.canceled -= instance.OnRightDash;
+            @LeftDash.started -= instance.OnLeftDash;
+            @LeftDash.performed -= instance.OnLeftDash;
+            @LeftDash.canceled -= instance.OnLeftDash;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -207,5 +265,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnRightDash(InputAction.CallbackContext context);
+        void OnLeftDash(InputAction.CallbackContext context);
     }
 }
