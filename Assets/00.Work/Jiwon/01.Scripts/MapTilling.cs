@@ -21,7 +21,6 @@ public class MapTilling : MonoBehaviour
             var item = maps[0];
             maps.Remove(item);
             maps.Add(item);
-            Debug.Log("D");
         }
             
     }
