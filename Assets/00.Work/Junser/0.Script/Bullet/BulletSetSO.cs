@@ -13,15 +13,13 @@ public class BulletSetSO : ScriptableObject
     public int shotAmount;
     public string _poolNameSet;
 
-    [HideIfEnum("shotType", (int)ShotType.POINT, (int)ShotType.CICLE)]
+    
     public Vector3 mainPoint;
 
-    [HideIfEnum("shotType", (int)ShotType.POINT, (int)ShotType.CICLE, (int)ShotType.CICLE_UNTARGET)]
     public Vector3 subPoint;
 
     public float shotDelay;
 
-    [HideIfEnum("shotType", (int)ShotType.POINT, (int)ShotType.AREA)]
     public float radius;
 
     public void Shot(Vector3 targetPos, Vector3 lunchpos, bool isEShot)

@@ -1,12 +1,10 @@
-
-using System;
 using UnityEditor;
 using UnityEngine;
 
 public class HideIfEnumAttribute : PropertyAttribute
 {
-    public string EnumFieldName;   // Enum ÇÊµå ÀÌ¸§
-    public int[] EnumValues;       // ¼û±æ Á¶°Ç¿¡ ÇØ´çÇÏ´Â Enum °ªµé
+    public string EnumFieldName;   // Enum ï¿½Êµï¿½ ï¿½Ì¸ï¿½
+    public int[] EnumValues;       // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ Enum ï¿½ï¿½ï¿½ï¿½
 
     public HideIfEnumAttribute(string enumFieldName, params int[] enumValues)
     {
@@ -25,7 +23,7 @@ public class HideIfEnumDrawer : PropertyDrawer
 
         if (enumProperty != null)
         {
-            // Enum °ªÀÌ ¼û±è Á¶°Ç Áß ÇÏ³ª¿¡ ÇØ´çÇÏ´ÂÁö È®ÀÎ
+            // Enum ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
             bool shouldHide = false;
             foreach (int value in hideIfEnum.EnumValues)
             {
@@ -36,7 +34,7 @@ public class HideIfEnumDrawer : PropertyDrawer
                 }
             }
 
-            // ¼û±è Á¶°Ç¿¡ ÇØ´çÇÏÁö ¾ÊÀ» ¶§¸¸ ÇÊµå Ç¥½Ã
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ Ç¥ï¿½ï¿½
             if (!shouldHide)
             {
                 EditorGUI.PropertyField(position, property, label, true);
@@ -55,11 +53,11 @@ public class HideIfEnumDrawer : PropertyDrawer
             {
                 if (enumProperty.enumValueIndex == value)
                 {
-                    return 0; // ¼û±æ ¶§ ³ôÀÌ¸¦ 0À¸·Î ¼³Á¤
+                    return 0; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 }
             }
         }
 
-        return EditorGUI.GetPropertyHeight(property, label); // ±âº» ³ôÀÌ ¹ÝÈ¯
+        return EditorGUI.GetPropertyHeight(property, label); // ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
     }
 }
