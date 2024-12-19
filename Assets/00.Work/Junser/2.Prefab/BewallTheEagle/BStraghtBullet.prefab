@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5137522941940697560}
   - component: {fileID: 6977675867268656638}
   m_Layer: 0
-  m_Name: B StraghtBullet
+  m_Name: BStraghtBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8483385595802354360, guid: fee4293f7f601b949b705f0b77de74d3,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483385595802354360, guid: fee4293f7f601b949b705f0b77de74d3,
+        type: 3}
+      propertyPath: sc
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569368508368780624, guid: fee4293f7f601b949b705f0b77de74d3,
+        type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7663612459558555247, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
+    - {fileID: 8479379959933841746, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
+    - {fileID: 8425875971806845298, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
+    - {fileID: 8488824611735778412, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

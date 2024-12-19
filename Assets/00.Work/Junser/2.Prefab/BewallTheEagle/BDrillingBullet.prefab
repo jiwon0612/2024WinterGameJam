@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5137522941940697560}
   - component: {fileID: 6977675867268656638}
   m_Layer: 0
-  m_Name: B DrillingBullet
+  m_Name: BDrillingBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
   m_Name: BBezierBullet
   m_EditorClassIdentifier: 
-  poolName: B BezierBullet
+  poolName: BBezierBullet
   prefab: {fileID: 4026667296363437275, guid: d7db8df3e993f8242a32005415f27ddd, type: 3}
   count: 30

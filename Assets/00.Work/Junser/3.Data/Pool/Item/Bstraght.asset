@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
   m_Name: Bstraght
   m_EditorClassIdentifier: 
-  poolName: B StraghtBullet
+  poolName: BStraghtBullet
   prefab: {fileID: 4026667296363437275, guid: 76a837af0c7b943409068906e7520495, type: 3}
   count: 0

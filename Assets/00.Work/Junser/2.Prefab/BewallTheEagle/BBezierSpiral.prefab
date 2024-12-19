@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5137522941940697560}
   - component: {fileID: 6473057022137235133}
   m_Layer: 0
-  m_Name: B BezierSpiral
+  m_Name: BBezierSpiral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

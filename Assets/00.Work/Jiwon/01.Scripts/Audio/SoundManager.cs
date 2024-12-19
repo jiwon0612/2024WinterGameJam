@@ -9,6 +9,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     [SerializeField] private AudioMixerGroup _bgmGroup;
     [SerializeField] private AudioMixerGroup _sfxGroup;
     [SerializeField] private SoundDataSO bgmData;
+    [SerializeField] private SoundPlayer _player;
     
     private float _masterVolume;
     private float _bgmVolume;
@@ -30,8 +31,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     {
         if (bgmData != null)
         {
-           var sound = PoolManager.Instance.Pop("SoundPlayer") as SoundPlayer;
-           sound.PlaySound(bgmData);
+           _player.PlaySound(bgmData);
         }
     }
 

@@ -29,6 +29,7 @@ public class PoolManager : MonoSingleton<PoolManager>
         }
 
         Pool pool = new Pool(poolable, transform, so.count);
+        Debug.Log($"Creating pool {poolable.PoolName} : ");
         _pools.Add(poolable.PoolName, pool);
     }
 
