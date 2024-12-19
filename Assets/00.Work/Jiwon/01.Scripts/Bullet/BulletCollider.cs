@@ -7,7 +7,7 @@ public class BulletCollider : MonoBehaviour
 {
     [SerializeField] private Bullet bullet;
     [SerializeField] private LayerMask whatIsTarget;
-    [SerializeField] private float energy;
+    public float energy;
 
     private void OnTriggerEnter(Collider other)
     {

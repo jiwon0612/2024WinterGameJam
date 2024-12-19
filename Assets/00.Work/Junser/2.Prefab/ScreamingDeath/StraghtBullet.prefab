@@ -47,6 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetPos: {x: 14.06, y: 12.912343, z: 13.29}
   _speed: 0.75
+  _color: {r: 0, g: 0.16470589, b: 0.47843137, a: 1}
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4942787855162973023
 GameObject:
   m_ObjectHideFlags: 0

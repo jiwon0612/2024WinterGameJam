@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public class AttackComponent : MonoBehaviour, IEntityComponent
     [SerializeField]
     private Vector3 offset;
 
+    private int _antiDamageShotCount = 0;
+    bool _eshot;
     public void Initialize(Entity entity)
     {
         
@@ -28,10 +31,19 @@ public class AttackComponent : MonoBehaviour, IEntityComponent
     {
         for(int i = 0; i < _currentAttackPattern.shotAmount; i++)
         {
-
-            _currentAttackPattern.Shot(player.position+offset, lunchPosition.position);
+            if(_antiDamageShotCount <= 1)
+            {
+                _eshot = Random.Range(1,_currentAttackPattern.shotAmount) == 1;
+                _antiDamageShotCount++;
+            }
+            else
+            {
+                _eshot = false;
+            }
+            _currentAttackPattern.Shot(player.position+offset, lunchPosition.position, _eshot);
             yield return new WaitForSeconds(_currentAttackPattern.shotDelay);
         }
+        _antiDamageShotCount = 0;
         yield return null;
     }
 }
