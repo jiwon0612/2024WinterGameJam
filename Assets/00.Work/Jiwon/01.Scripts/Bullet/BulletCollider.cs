@@ -15,6 +15,8 @@ public class BulletCollider : MonoBehaviour
         {
             if (other.TryGetComponent(out EntityUltimateComp comp))
                 comp.SetUltimateValue(energy);
+            
+            bullet.BulletDetected();
         }
     }
 }
