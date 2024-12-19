@@ -33,6 +33,7 @@ public class Bullet : MonoBehaviour, Ipoolable
     {
         ParticleSystem[] trailRenderers = GetComponentsInChildren<ParticleSystem>();
         _trailRenderer = trailRenderers.ConvertTo<List<ParticleSystem>>();
+        if(_trailRenderer.Count > 0)
         _defColor = _trailRenderer[0].startColor;
     }
     public void Lunch(Vector3 targetPos, Vector3 lunchPos, bool isEShot)
