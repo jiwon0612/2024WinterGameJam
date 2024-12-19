@@ -9,7 +9,13 @@ public class InGameUI : UIBase
     [SerializeField] private Image ultImage;
     [SerializeField] private Image dashImage;
     [SerializeField] private Image attackImage;
-    
+
+    protected override void Awake()
+    {
+        base.Awake();
+        SetUltimate(0);
+    }
+
     public void SetHP(float hp)
     {
         hpImage.fillAmount = hp;
