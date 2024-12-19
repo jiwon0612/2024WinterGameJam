@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631c1d0b64dfe7f4c94c4d82d3dff892, type: 3}
   m_Name: CurvedDrill
   m_EditorClassIdentifier: 
-  defaltBullet: {fileID: 6473057022137235133, guid: 7434616ce1925fb45a530f7bffd0e3f7,
+  defaltBullet: {fileID: 6473057022137235133, guid: 8f7ab5b418b14cb43a9fba8cabe66bdc,
     type: 3}
   shotType: 1
   shotAmount: 1
