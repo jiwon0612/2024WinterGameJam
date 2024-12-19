@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5137522941940697560}
   - component: {fileID: 6977675867268656638}
   m_Layer: 0
-  m_Name: StraghtBullet
+  m_Name: StraghtAreaBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,6 +141,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613511615516851404, guid: fcbc6de0ec87d50469aa1414292942f0,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6977675867268656638}
+    - target: {fileID: 3613511615516851404, guid: fcbc6de0ec87d50469aa1414292942f0,
+        type: 3}
+      propertyPath: energy
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 1145448487}
   - component: {fileID: 1145448488}
   - component: {fileID: 1145448489}
+  - component: {fileID: 1145448490}
   m_Layer: 0
   m_Name: Attacker
   m_TagString: Untagged
@@ -565,7 +566,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ebb8a47a267f5d046991370401414614, type: 2}
   - {fileID: 11400000, guid: 039dd3f5d20ba364a9fbfb0d23180b89, type: 2}
   - {fileID: 11400000, guid: ebd4131de5c7cb44086be5a808fc5cf3, type: 2}
-  offset: {x: 0, y: 0, z: -10}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!65 &1145448479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -646,8 +647,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fsmSO: {fileID: 11400000, guid: 2d1f1639a20fc684b8816fd1299c3bec, type: 2}
   _deathPosition: {x: 0, y: 0, z: 0}
-  minAttackDelay: 2
-  maxAttackDelay: 4
+  minAttackDelay: 0
+  maxAttackDelay: 5
   _attackComponent: {fileID: 1145448478}
   time: 80
 --- !u!54 &1145448488
@@ -691,6 +692,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   radius: 20
+--- !u!114 &1145448490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145448477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad7b8a051c7f3549bef169f920ef84c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxUltimateValue: 50
+  OnUltimateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMaxUltimateCharge:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1879491044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8777164586625635994, guid: e3fcb28f85c2a744b8796579a6b6526b,

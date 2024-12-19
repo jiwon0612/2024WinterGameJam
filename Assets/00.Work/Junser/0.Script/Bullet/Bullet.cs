@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Bullet : MonoBehaviour,Ipoolable
 {
@@ -22,6 +23,9 @@ public class Bullet : MonoBehaviour,Ipoolable
 
     GameObject Ipoolable.ObjectPrefab => gameObject;
 
+    public UnityEvent OnDeadEvent;
+
+
     private void Awake()
     {
         TrailRenderer[] trailRenderers = GetComponentsInChildren<TrailRenderer>();
@@ -36,6 +40,12 @@ public class Bullet : MonoBehaviour,Ipoolable
         transform.LookAt(_targetPos);
 
         transform.rotation *= Quaternion.Euler(0, 0, Random.Range(0, 360f));
+
+        foreach (TrailRenderer trailRenderer in _trailRenderer)
+        {
+            trailRenderer.Clear();
+            trailRenderer.emitting = true;
+        }
     }
 
     public void FixedUpdate()
@@ -61,7 +71,7 @@ public class Bullet : MonoBehaviour,Ipoolable
 
     private void ClacArrive()
     {
-        if (Util.InverseVectorLerp(_lunchPos, _targetPos, _basePos.z)>=1)
+        if (Util.InverseVectorLerp(_lunchPos, _targetPos, _basePos.z)>=1.3f)
         {
             BulletDetected();
         }
@@ -69,11 +79,11 @@ public class Bullet : MonoBehaviour,Ipoolable
 
     public void BulletDetected()
     {
+        OnDeadEvent?.Invoke();
         PoolManager.Instance.Push(this);
     }
     void Ipoolable.ResetItem()
     {
-        gameObject.SetActive(false);
         transform.localPosition = Vector3.zero;
         foreach (Transform child in transform)
         {
@@ -82,7 +92,7 @@ public class Bullet : MonoBehaviour,Ipoolable
         }
         foreach (TrailRenderer trailRenderer in _trailRenderer)
         {
-            trailRenderer.Clear();
+            trailRenderer.emitting =false;
         }
     }
 #if UNITY_EDITOR
