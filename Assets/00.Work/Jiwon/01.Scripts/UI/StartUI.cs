@@ -16,8 +16,7 @@ public class StartUI : UIBase
 
     public void ClickSettingBtn()
     {
-        transform.DOLocalMoveX(-Screen.width, 0.5f);
-        settingUI.transform.DOLocalMoveX(0, 0.5f);
+        settingUI.ShowSettingUI();
     }
     
     public void ClickExitBtn() => Application.Quit();
