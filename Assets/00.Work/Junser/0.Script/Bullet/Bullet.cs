@@ -63,8 +63,13 @@ public class Bullet : MonoBehaviour,Ipoolable
     {
         if (Util.InverseVectorLerp(_lunchPos, _targetPos, _basePos.z)>=1)
         {
-            PoolManager.Instance.Push(this);
+            BulletDetected();
         }
+    }
+
+    public void BulletDetected()
+    {
+        PoolManager.Instance.Push(this);
     }
     void Ipoolable.ResetItem()
     {
