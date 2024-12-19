@@ -22,6 +22,6 @@ public class Util
     {
         if ((end - start).magnitude == 0) return 0f; 
 
-        return Mathf.Abs(value / (end - start).magnitude);    
+        return (value / (end - start).magnitude);    
     }
 }
