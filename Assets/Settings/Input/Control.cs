@@ -62,6 +62,15 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""92d19f38-06ec-4934-9143-ea6f1d84995f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""525e7df2-059e-4252-a9f1-9088d464d3f0"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
         m_Player_RightDash = m_Player.FindAction("RightDash", throwIfNotFound: true);
         m_Player_LeftDash = m_Player.FindAction("LeftDash", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RightDash;
     private readonly InputAction m_Player_LeftDash;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_MousePosition;
     public struct PlayerActions
     {
         private @Control m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
         public InputAction @RightDash => m_Wrapper.m_Player_RightDash;
         public InputAction @LeftDash => m_Wrapper.m_Player_LeftDash;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @Fire.started += instance.OnFire;
             @Fire.performed += instance.OnFire;
             @Fire.canceled += instance.OnFire;
+            @MousePosition.started += instance.OnMousePosition;
+            @MousePosition.performed += instance.OnMousePosition;
+            @MousePosition.canceled += instance.OnMousePosition;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -274,6 +300,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @Fire.started -= instance.OnFire;
             @Fire.performed -= instance.OnFire;
             @Fire.canceled -= instance.OnFire;
+            @MousePosition.started -= instance.OnMousePosition;
+            @MousePosition.performed -= instance.OnMousePosition;
+            @MousePosition.canceled -= instance.OnMousePosition;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -297,5 +326,6 @@ public partial class @Control: IInputActionCollection2, IDisposable
         void OnRightDash(InputAction.CallbackContext context);
         void OnLeftDash(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
 }
