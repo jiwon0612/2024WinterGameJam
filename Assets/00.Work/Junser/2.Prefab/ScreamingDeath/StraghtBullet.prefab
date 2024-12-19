@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetPos: {x: 14.06, y: 12.912343, z: 13.29}
   _speed: 0.75
+  _color: {r: 0, g: 0.061501026, b: 1, a: 1}
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []

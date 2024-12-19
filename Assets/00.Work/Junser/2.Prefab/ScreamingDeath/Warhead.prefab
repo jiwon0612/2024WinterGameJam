@@ -77,6 +77,7 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
+  isHeal: 0
 --- !u!33 &6958366004174409376
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -178,11 +179,6 @@ PrefabInstance:
     - target: {fileID: 4562464733809718, guid: 831508efc40187645bc17e16b4f37501, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198541533017677792, guid: 831508efc40187645bc17e16b4f37501,
-        type: 3}
-      propertyPath: looping
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
