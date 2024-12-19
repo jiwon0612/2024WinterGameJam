@@ -24,6 +24,7 @@ public class Player : Entity
     public UnityEvent OnDeadEvent;
     public UnityEvent OnShootEvent;
     public UnityEvent OnUltimateShootEvent;
+    public UnityEvent OnDashEvent;
 
     public PlayerMover Mover { get; private set; }
     public PlayerRenderer Renderer { get; private set; }
@@ -142,6 +143,9 @@ public class Player : Entity
         Renderer.ChangeState(WingState.Fold);
         _isDash = true;
         UltimateComp.IsCanHit = false;
+        
+        OnDashEvent?.Invoke();
+        
         Mover.Dash(1, () =>
         {
             UltimateComp.IsCanHit = true;
@@ -160,6 +164,9 @@ public class Player : Entity
         Renderer.ChangeState(WingState.Fold);
         _isDash = true;
         UltimateComp.IsCanHit = false;
+        
+        OnDashEvent?.Invoke();
+        
         Mover.Dash(-1, () =>
         {
             UltimateComp.IsCanHit = true;

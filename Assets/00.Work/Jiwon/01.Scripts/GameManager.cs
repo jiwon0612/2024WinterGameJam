@@ -31,6 +31,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void SetEnergy(float energy)
     {
+        Debug.Log("dd");
         _currentEnergy += energy;
         if (_currentEnergy >= maxEnergy)
         {

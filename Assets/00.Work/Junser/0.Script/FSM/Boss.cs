@@ -32,6 +32,8 @@ public class Boss : Entity
     public virtual void Death()
     {
         _bossMove.enabled = false;
+        OnDeath?.Invoke();
+
     }
 
     protected virtual void Update()
