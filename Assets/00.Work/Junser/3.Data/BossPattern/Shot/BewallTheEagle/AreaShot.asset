@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 3}
   shotType: 3
   shotAmount: 25
-  _poolNameSet: StraghtBullet
+  _poolNameSet: B StraghtBullet
   mainPoint: {x: 0, y: 10, z: -7}
   subPoint: {x: -20, y: -15, z: -7}
   shotDelay: 0
