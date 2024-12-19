@@ -8,7 +8,7 @@ public class UIBase : MonoBehaviour
 {
     private CanvasScaler _canvasScaler;
     
-    private void Awake()
+    protected virtual void Awake()
     {
         _canvasScaler = GetComponent<CanvasScaler>();
         _canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;

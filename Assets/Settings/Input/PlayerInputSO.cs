@@ -24,6 +24,19 @@ public class PlayerInputSO : ScriptableObject, IPlayerActions
         _control.Player.SetCallbacks(this);
     }
 
+    public void SetActive(bool value)
+    {
+        if (value == true)
+        {
+            _control.Player.Enable();
+            _control.Player.SetCallbacks(this);
+        }
+        else
+        {
+            _control.Player.Disable();
+        }
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         MoveDirection = context.ReadValue<Vector2>();

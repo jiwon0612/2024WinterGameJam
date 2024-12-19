@@ -72,8 +72,11 @@ MonoBehaviour:
   bullet: {fileID: 0}
   whatIsTarget:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   energy: 0
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!33 &6958366004174409376
 MeshFilter:
   m_ObjectHideFlags: 0

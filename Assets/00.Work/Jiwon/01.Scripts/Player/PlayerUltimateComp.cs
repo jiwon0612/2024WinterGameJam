@@ -3,7 +3,7 @@ public class PlayerUltimateComp : EntityUltimateComp
     public override void Initialize(Entity entity)
     {
         _entity = entity;
-        _currentUltimateValue = 0;
+        _currentUltimateValue = maxUltimateValue;
         
         IsCanHit = true;
     }
@@ -17,6 +17,6 @@ public class PlayerUltimateComp : EntityUltimateComp
         {
             OnMaxUltimateCharge?.Invoke();
         }
-        OnUltimateChange?.Invoke(_currentUltimateValue);
+        OnUltimateChange?.Invoke(_currentUltimateValue / maxUltimateValue);
     }
 }
