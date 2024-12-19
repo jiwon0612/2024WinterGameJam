@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public enum WingState
@@ -21,6 +22,8 @@ public class PlayerRenderer : EntityRenderer
 
     private bool _isChangeState;
     private bool _isWinging;
+    
+    public UnityEvent OnWingingEvent;
     
     public SmallWingRig TailRig { get; private set; }
     
@@ -108,7 +111,9 @@ public class PlayerRenderer : EntityRenderer
             case WingState.Idle:
                 break;
             case WingState.Winging:
-                ChangeState(WingState.Idle);
+            {
+                OnWingingEvent?.Invoke();
+            }
                 break;
             case WingState.Fold:
                 break;

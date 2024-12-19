@@ -21,6 +21,8 @@ public class Player : Entity
 
     public UnityEvent<float> OnDashValue;
     public UnityEvent<float> OnFireValue;
+    public UnityEvent OnDeadEvent;
+    public UnityEvent OnShootEvent;
 
     public PlayerMover Mover { get; private set; }
     public PlayerRenderer Renderer { get; private set; }
@@ -37,6 +39,7 @@ public class Player : Entity
     private float _currentFireTime;
 
     private bool _isDash;
+    private bool _isReady;
 
     protected override void AfterInitComp()
     {
@@ -44,6 +47,7 @@ public class Player : Entity
         
         _currentDashTime = dashCollTime;
         _currentFireTime = fireCollTime;
+        _isReady = false;
         
         UnFoldCollider = GetComponent<BoxCollider>();
         FoldCollider = GetComponent<CapsuleCollider>();
@@ -156,11 +160,12 @@ public class Player : Entity
     public void StartParticle()
     {
         _particle.Play();
+        _isReady = true;
     }
-
+    
     public void Dead()
     {
-        
+        OnDeadEvent?.Invoke();   
     }
     
     private void TryFire()
@@ -168,6 +173,14 @@ public class Player : Entity
         if (_isDash) return;
         if (_currentFireTime < fireCollTime) return;
         _currentFireTime = 0;
+
+        if (_isReady)
+        {
+            
+            return;
+        }
+        
+        OnShootEvent?.Invoke();
         AttackComp.Shot();
     }
 }
