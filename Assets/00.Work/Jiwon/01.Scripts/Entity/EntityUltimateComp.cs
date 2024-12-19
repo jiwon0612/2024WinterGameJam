@@ -16,7 +16,7 @@ public class EntityUltimateComp : MonoBehaviour, IEntityComponent
     public virtual void Initialize(Entity entity)
     {
         _entity = entity;    
-        _currentUltimateValue = maxUltimateValue;
+        _currentUltimateValue = 0;
         IsCanHit = true;
     }
 

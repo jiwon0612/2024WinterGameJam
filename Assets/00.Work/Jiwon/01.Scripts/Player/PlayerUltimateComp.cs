@@ -3,7 +3,7 @@ public class PlayerUltimateComp : EntityUltimateComp
     public override void Initialize(Entity entity)
     {
         _entity = entity;
-        _currentUltimateValue = 0;
+        _currentUltimateValue = maxUltimateValue;
         
         IsCanHit = true;
     }

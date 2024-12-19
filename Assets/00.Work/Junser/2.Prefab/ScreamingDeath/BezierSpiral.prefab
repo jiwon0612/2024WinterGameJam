@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetPos: {x: 20, y: 20, z: 20}
   _speed: 0.25
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
   randomScale: 5
 --- !u!1 &4942787855162973023
 GameObject:
@@ -170,6 +173,11 @@ PrefabInstance:
       propertyPath: energy
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3613511615516851404, guid: fcbc6de0ec87d50469aa1414292942f0,
+        type: 3}
+      propertyPath: whatIsTarget.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -254,6 +262,11 @@ PrefabInstance:
       propertyPath: energy
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3613511615516851404, guid: fcbc6de0ec87d50469aa1414292942f0,
+        type: 3}
+      propertyPath: whatIsTarget.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -337,6 +350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: energy
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613511615516851404, guid: fcbc6de0ec87d50469aa1414292942f0,
+        type: 3}
+      propertyPath: whatIsTarget.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

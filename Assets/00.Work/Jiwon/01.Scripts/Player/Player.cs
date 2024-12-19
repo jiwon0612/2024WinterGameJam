@@ -157,6 +157,11 @@ public class Player : Entity
     {
         _particle.Play();
     }
+
+    public void Dead()
+    {
+        
+    }
     
     private void TryFire()
     {
