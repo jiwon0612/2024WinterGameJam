@@ -59,7 +59,7 @@ Material:
     - _WaveHight: -0.16
     - _wavethorth: -0.18
     m_Colors:
-    - _Color: {r: 0, g: 3.3565714, b: 3.288027, a: 0}
+    - _Color: {r: 0, g: 2.5482502, b: 3.3565714, a: 0}
     - _Color_1: {r: 0.1616826, g: 0.43973422, b: 0.4716981, a: 0}
     - _White: {r: 0.30596092, g: 0.6758529, b: 0.81761, a: 0}
   m_BuildTextureStacks: []

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using DG.Tweening;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class Player : Entity
@@ -15,6 +16,11 @@ public class Player : Entity
     [SerializeField] private float lerpSpeed;
     [SerializeField] private float dashCollTime;
     [SerializeField] private float fireCollTime;
+    [SerializeField] private BulletSetSO defaultBullet;
+    [SerializeField] private BulletSetSO ultimateBullet;
+
+    public UnityEvent<float> OnDashValue;
+    public UnityEvent<float> OnFireValue;
 
     public PlayerMover Mover { get; private set; }
     public PlayerRenderer Renderer { get; private set; }
@@ -90,10 +96,16 @@ public class Player : Entity
         Mover.SetMove(input.MoveDirection);
         Aiming.SetPosition(input.MousePoint);
         if (_currentDashTime < dashCollTime)
+        {
             _currentDashTime += Time.deltaTime;
+            OnDashValue?.Invoke(_currentDashTime / dashCollTime);
+        }
 
         if (_currentFireTime < fireCollTime)
+        {
             _currentFireTime += Time.deltaTime;
+            OnFireValue?.Invoke(_currentFireTime / fireCollTime);
+        }
 
         if (Renderer.CurrentState == WingState.Idle || Renderer.CurrentState == WingState.Winging)
         {

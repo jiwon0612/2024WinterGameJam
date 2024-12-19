@@ -29,6 +29,6 @@ public class EntityUltimateComp : MonoBehaviour, IEntityComponent
         {
             OnMaxUltimateCharge?.Invoke();
         }
-        OnUltimateChange?.Invoke(_currentUltimateValue);
+        OnUltimateChange?.Invoke(_currentUltimateValue / maxUltimateValue);
     }
 }

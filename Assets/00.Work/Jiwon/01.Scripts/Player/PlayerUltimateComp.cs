@@ -17,6 +17,6 @@ public class PlayerUltimateComp : EntityUltimateComp
         {
             OnMaxUltimateCharge?.Invoke();
         }
-        OnUltimateChange?.Invoke(_currentUltimateValue);
+        OnUltimateChange?.Invoke(_currentUltimateValue / maxUltimateValue);
     }
 }
