@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec581ca6360aea04d8afd6168e2be7f6, type: 3}
+  m_Name: ScreamingDeathBulletList
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 11400000, guid: 2b70d2a5c7b37694a83a2b33ccda71f8, type: 2}
+  - {fileID: 11400000, guid: 489baf06404a49245bb28221bb1c155b, type: 2}
+  - {fileID: 11400000, guid: 20856e26b75a2904d8cfcdafd15d84ba, type: 2}
+  - {fileID: 11400000, guid: ec1676b5f49057b4fa436ed6304484ed, type: 2}

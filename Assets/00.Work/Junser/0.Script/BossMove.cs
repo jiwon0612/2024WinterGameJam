@@ -2,13 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossMove : MonoBehaviour
+public class BossMove : MonoBehaviour, IEntityComponent
 {
     [SerializeField]
     private float speed = 5f;
     [SerializeField]// 이동 속도
     private float radius = 3f;     // 8자 모양의 반지름
     private float timeElapsed = 0f;
+
+    public void Initialize(Entity entity)
+    {
+
+    }
+
+    public void Stop()
+    {
+        speed = 0f;
+    }
 
     void Update()
     {

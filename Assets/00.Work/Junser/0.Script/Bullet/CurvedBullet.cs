@@ -18,10 +18,14 @@ public class CurvedBullet : Bullet
         realPos = Util.CubicBezierCurve(
             new Vector3(0, 0, 0),
             new Vector3(0, 15f, 5f) + way1Offset,
-            new Vector3(0,1, 7.5f) + way2Offset,
+            new Vector3(0,0, 7.5f),
             new Vector3(0,0,30),
             currentReached) * bezierScale;
 
+        if(currentReached >= 1f)
+        {
+            BulletDetected();
+        }
     }
 #if UNITY_EDITOR
     void OnDrawGizmos()
