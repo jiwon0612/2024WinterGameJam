@@ -38,7 +38,6 @@ public class Bullet : MonoBehaviour, Ipoolable
     }
     public void Lunch(Vector3 targetPos, Vector3 lunchPos, bool isEShot)
     {
-        print(isEShot);
         _targetPos = targetPos;
         _lunchPos = lunchPos;
         transform.position = _lunchPos;
@@ -51,7 +50,7 @@ public class Bullet : MonoBehaviour, Ipoolable
         {
             foreach (var item in GetComponentsInChildren<BulletCollider>())
             {
-                item.energy *= -1;
+                item.isHeal = isEShot;
             };
 
             foreach (ParticleSystem trailRenderer in _trailRenderer)
