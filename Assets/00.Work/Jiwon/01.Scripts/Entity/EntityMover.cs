@@ -8,15 +8,15 @@ public class EntityMover : MonoBehaviour, IEntityAfterInitable
     [SerializeField] private float maxXMove;
     [SerializeField] private float maxYMove;
 
-    [SerializeField] private float xSpeed;
-    [SerializeField] private float ySpeed;
+    [SerializeField] protected float xSpeed;
+    [SerializeField] protected float ySpeed;
         
     protected Entity _entity;
     protected Rigidbody _rigidbody;
 
-    private Vector3 _startPos;
-    private Vector3 _maxCanMoveSpace;
-    private Vector3 _minCanMoveSpace;
+    protected Vector3 _startPos;
+    protected Vector3 _maxCanMoveSpace;
+    protected Vector3 _minCanMoveSpace;
     private bool _isInit = false;
     
     public NotifyValue<Vector2> MoveDirection { get; private set; }

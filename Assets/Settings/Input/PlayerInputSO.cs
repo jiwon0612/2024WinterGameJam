@@ -7,6 +7,7 @@ using static Control;
 public class PlayerInputSO : ScriptableObject, IPlayerActions
 {
     public Vector2 MoveDirection { get; private set; }
+    public Vector2 MousePoint { get; private set; }
     public event Action OnRightDashEvent;
     public event Action OnLeftDashEvent;
     public event Action OnFireEvent;
@@ -44,5 +45,10 @@ public class PlayerInputSO : ScriptableObject, IPlayerActions
     {
         if (context.performed)
             OnFireEvent?.Invoke();
+    }
+
+    public void OnMousePosition(InputAction.CallbackContext context)
+    {
+        MousePoint = context.ReadValue<Vector2>();
     }
 }

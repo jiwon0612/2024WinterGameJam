@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 public class Player : Entity
 {
     [SerializeField] private PlayerInputSO input;
 
     [Header("Setting")] 
-    [SerializeField] private float rotateValue;
+    [SerializeField] private float rotateXValue;
+    [SerializeField] private float rotateYValue;
     [SerializeField] private float lerpSpeed;
     [SerializeField] private float dashCollTime;
     [SerializeField] private float fireCollTime;
@@ -17,7 +19,13 @@ public class Player : Entity
     public PlayerMover Mover { get; private set; }
     public PlayerRenderer Renderer { get; private set; }
     public AttackComponent AttackComp { get; private set; }
-
+    
+    public BoxCollider UnFoldCollider { get; private set; }
+    public CapsuleCollider FoldCollider { get; private set; }
+    
+    public PlayerAiming Aiming { get; private set; }
+    
+    private ParticleSystem _particle;
     private Tween _rotateTween;
     private float _currentDashTime;
     private float _currentFireTime;
@@ -31,15 +39,23 @@ public class Player : Entity
         _currentDashTime = dashCollTime;
         _currentFireTime = fireCollTime;
         
+        UnFoldCollider = GetComponent<BoxCollider>();
+        FoldCollider = GetComponent<CapsuleCollider>();
+        _particle = GetComponentInChildren<ParticleSystem>();
+        
         Mover = GetCompo<PlayerMover>();
         Renderer = GetCompo<PlayerRenderer>();
         AttackComp = GetCompo<AttackComponent>();
+        Aiming = GetCompo<PlayerAiming>();
 
         input.OnRightDashEvent += TryRightDash;
         input.OnLeftDashEvent += TryLeftDash;
         input.OnFireEvent += TryFire;
         Mover.OnWingingEvent.AddListener(Winging);
         Mover.MoveDirection.OnValueChanged += HandleRotatePlayer;
+        
+        FoldCollider.enabled = false;
+        UnFoldCollider.enabled = true;
     }
 
     private void OnDisable()
@@ -55,7 +71,7 @@ public class Player : Entity
     {
         if (_rotateTween.IsActive()) _rotateTween.Kill();
 
-        transform.DORotate(new Vector3(0, 0, next.x * rotateValue), lerpSpeed).SetEase(Ease.Linear);
+        transform.DORotate(new Vector3(-next.y * rotateYValue, 0, next.x * rotateXValue), lerpSpeed).SetEase(Ease.Linear);
 
         if (!_isDash)
         {
@@ -72,11 +88,23 @@ public class Player : Entity
     private void Update()
     {
         Mover.SetMove(input.MoveDirection);
+        Aiming.SetPosition(input.MousePoint);
         if (_currentDashTime < dashCollTime)
             _currentDashTime += Time.deltaTime;
 
         if (_currentFireTime < fireCollTime)
             _currentFireTime += Time.deltaTime;
+
+        if (Renderer.CurrentState == WingState.Idle || Renderer.CurrentState == WingState.Winging)
+        {
+            FoldCollider.enabled = false;
+            UnFoldCollider.enabled = true;
+        }
+        else
+        {
+            FoldCollider.enabled = true;
+            UnFoldCollider.enabled = false;
+        }
     }
 
     private void Winging() => Renderer.ChangeState(WingState.Winging);
