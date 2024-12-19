@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Boss : Entity
 {
@@ -13,6 +14,8 @@ public class Boss : Entity
     public AttackComponent _attackComponent;
     protected BossMove _bossMove;
     public EntityState CurrentState => _stateMachine.currentState;
+
+    public UnityEvent OnDeath, OnRunOut;
     protected override void AfterInitComp()
     {
         base.AfterInitComp();

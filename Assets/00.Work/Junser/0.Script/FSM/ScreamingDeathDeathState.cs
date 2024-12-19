@@ -13,6 +13,7 @@ public class ScreamingDeathDeathState : EntityState
     }
     public override void Enter()
     {
+        _boss.OnDeath?.Invoke();
         base.Enter();
         _boss.Death();
     }
