@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 486103004322985262}
   - component: {fileID: 6010580352254187313}
   - component: {fileID: 8341488885223957130}
+  - component: {fileID: 3613511615516851404}
   m_Layer: 0
   m_Name: Warhead
   m_TagString: Untagged
@@ -106,6 +107,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3613511615516851404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557921361749182601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fcc983163fe2e4da427c9a21370153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  whatIsTarget:
+    serializedVersion: 2
+    m_Bits: 0
+  energy: 0
 --- !u!1 &4458393134711145338
 GameObject:
   m_ObjectHideFlags: 0

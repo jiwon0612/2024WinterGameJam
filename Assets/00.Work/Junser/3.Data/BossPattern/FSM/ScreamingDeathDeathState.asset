@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa6452315eeb3a3419150f1931e24633, type: 3}
-  m_Name: Page2
+  m_Script: {fileID: 11500000, guid: 3a4ff2c22878ac04db95f9da1bd1eb7f, type: 3}
+  m_Name: ScreamingDeathDeathState
   m_EditorClassIdentifier: 
-  patterns:
-  - {fileID: 6977675867268656638, guid: e1c8da4943201ea4087140ea7bf8a485, type: 3}
+  stateName: 2
+  className: ScreamingDeathDeathState

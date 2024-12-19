@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631c1d0b64dfe7f4c94c4d82d3dff892, type: 3}
+  m_Name: AreaShotRight
+  m_EditorClassIdentifier: 
+  defaltBullet: {fileID: 6977675867268656638, guid: 21a279cd533458a4fb8b9ff1833d89e7,
+    type: 3}
+  shotType: 3
+  shotAmount: 20
+  _poolNameSet: StraghtBullet
+  mainPoint: {x: 0, y: 10, z: -7}
+  subPoint: {x: 20, y: -15, z: -7}
+  shotDelay: 0
+  radius: 0

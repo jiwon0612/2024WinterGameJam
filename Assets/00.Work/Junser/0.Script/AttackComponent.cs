@@ -12,6 +12,8 @@ public class AttackComponent : MonoBehaviour, IEntityComponent
     private BulletSetSO _currentAttackPattern;
     [SerializeField]
     private List<BulletSetSO> _attackPattern;
+    [SerializeField]
+    private Vector3 offset;
 
     public void Initialize(Entity entity)
     {
@@ -27,7 +29,7 @@ public class AttackComponent : MonoBehaviour, IEntityComponent
     {
         for(int i = 0; i < _currentAttackPattern.shotAmount; i++)
         {
-            _currentAttackPattern.Shot(player.position, lunchPosition.position);
+            _currentAttackPattern.Shot(player.position+offset, lunchPosition.position);
             yield return new WaitForSeconds(_currentAttackPattern.shotDelay);
         }
         yield return null;

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec581ca6360aea04d8afd6168e2be7f6, type: 3}
-  m_Name: BulletList
+  m_Name: ScreamingDeathBulletList
   m_EditorClassIdentifier: 
   list:
   - {fileID: 11400000, guid: 2b70d2a5c7b37694a83a2b33ccda71f8, type: 2}

@@ -17,7 +17,7 @@ MonoBehaviour:
   shotType: 3
   shotAmount: 20
   _poolNameSet: StraghtBullet
-  mainPoint: {x: 5, y: 5, z: 0}
-  subPoint: {x: -5, y: -5, z: 0}
+  mainPoint: {x: 0, y: 10, z: -7}
+  subPoint: {x: -20, y: -15, z: -7}
   shotDelay: 0
   radius: 0
