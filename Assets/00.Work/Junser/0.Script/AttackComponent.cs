@@ -20,7 +20,17 @@ public class AttackComponent : MonoBehaviour, IEntityComponent
     public void Shot()
     {
         _currentAttackPattern = _attackPattern[Random.Range(0, _attackPattern.Count)];
-        StartCoroutine(_currentAttackPattern.Shot(player.position, lunchPosition.position));
+        StartCoroutine(ShotDelay());
+    }
+
+    private IEnumerator ShotDelay()
+    {
+        for(int i = 0; i < _currentAttackPattern.shotAmount; i++)
+        {
+            _currentAttackPattern.Shot(player.position, lunchPosition.position);
+            yield return new WaitForSeconds(_currentAttackPattern.shotDelay);
+        }
+        yield return null;
     }
 }
 
