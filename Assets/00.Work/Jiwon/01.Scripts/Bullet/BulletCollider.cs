@@ -8,6 +8,7 @@ public class BulletCollider : MonoBehaviour
 {
     [SerializeField] private Bullet bullet;
     [SerializeField] private LayerMask whatIsTarget;
+    public float energy;
     [SerializeField] private float energy;
     public UnityEvent OnDeadEvent;
 

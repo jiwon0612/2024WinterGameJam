@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Bullet : MonoBehaviour,Ipoolable
+public class Bullet : MonoBehaviour, Ipoolable
 {
     protected Rigidbody _rb;
     protected Vector3 _lunchPos;
@@ -16,8 +16,11 @@ public class Bullet : MonoBehaviour,Ipoolable
     private bool started = false;
     [SerializeField]
     protected float _speed;
+    [SerializeField]
+    protected Color _color;
+    private Color _defColor;
 
-    private List<TrailRenderer> _trailRenderer = new List<TrailRenderer>();
+    private List<ParticleSystem> _trailRenderer = new List<ParticleSystem>();
 
     string Ipoolable.PoolName => gameObject.name;
 
@@ -28,11 +31,13 @@ public class Bullet : MonoBehaviour,Ipoolable
 
     private void Awake()
     {
-        TrailRenderer[] trailRenderers = GetComponentsInChildren<TrailRenderer>();
-        _trailRenderer = trailRenderers.ConvertTo<List<TrailRenderer>>();
+        ParticleSystem[] trailRenderers = GetComponentsInChildren<ParticleSystem>();
+        _trailRenderer = trailRenderers.ConvertTo<List<ParticleSystem>>();
+        _defColor = _trailRenderer[0].startColor;
     }
-    public void Lunch(Vector3 targetPos, Vector3 lunchPos)
+    public void Lunch(Vector3 targetPos, Vector3 lunchPos, bool isEShot)
     {
+        print(isEShot);
         _targetPos = targetPos;
         _lunchPos = lunchPos;
         transform.position = _lunchPos;
@@ -41,10 +46,18 @@ public class Bullet : MonoBehaviour,Ipoolable
 
         transform.rotation *= Quaternion.Euler(0, 0, Random.Range(0, 360f));
 
-        foreach (TrailRenderer trailRenderer in _trailRenderer)
+        if (isEShot)
         {
-            trailRenderer.Clear();
-            trailRenderer.emitting = true;
+            foreach (var item in GetComponentsInChildren<BulletCollider>())
+            {
+                item.energy *= -1;
+            };
+
+            foreach (ParticleSystem trailRenderer in _trailRenderer)
+            {
+                trailRenderer.startColor = _color;
+
+            }
         }
     }
 
@@ -71,7 +84,7 @@ public class Bullet : MonoBehaviour,Ipoolable
 
     private void ClacArrive()
     {
-        if (Util.InverseVectorLerp(_lunchPos, _targetPos, _basePos.z)>=1.3f)
+        if (Util.InverseVectorLerp(_lunchPos, _targetPos, _basePos.z) >= 1.3f)
         {
             BulletDetected();
         }
@@ -88,11 +101,12 @@ public class Bullet : MonoBehaviour,Ipoolable
         foreach (Transform child in transform)
         {
             child.localPosition = Vector3.zero;
-            
+
         }
-        foreach (TrailRenderer trailRenderer in _trailRenderer)
+        foreach (ParticleSystem trailRenderer in _trailRenderer)
         {
-            trailRenderer.emitting =false;
+            trailRenderer.startColor = _defColor;
+
         }
     }
 #if UNITY_EDITOR
