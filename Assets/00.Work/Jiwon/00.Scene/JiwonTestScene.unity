@@ -1953,6 +1953,118 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1551490809}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &597018267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597018268}
+  - component: {fileID: 597018271}
+  - component: {fileID: 597018270}
+  - component: {fileID: 597018269}
+  m_Layer: 7
+  m_Name: UlFeedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &597018268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597018267}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450652927021232}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &597018269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597018267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36529fec15dd9e44936af6656ce2f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impulsePower: 8
+--- !u!114 &597018270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597018267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 1
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: 1, z: 0}
+--- !u!114 &597018271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597018267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e6e7fffc1b2b249b51bded4c5e25b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603571627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,6 +2823,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
   CurrentState: 0
+  OnWingingEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &778624892
 GameObject:
   m_ObjectHideFlags: 0
@@ -6342,6 +6457,37 @@ MonoBehaviour:
   playerInputSO: {fileID: 11400000, guid: ac2b8ebbae69cce4983960bf0ac3194c, type: 2}
   uiInputSO: {fileID: 11400000, guid: 9095c67a12e3a344da70209f87a35c72, type: 2}
   stopUI: {fileID: 1114944829}
+  maxEnergy: 5
+  OnEnergyChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 890538880}
+        m_TargetAssemblyTypeName: InGameUI, Assembly-CSharp
+        m_MethodName: SetUltimate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEnergyMaxChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1599468701}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: StartParticle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1579083626
 GameObject:
   m_ObjectHideFlags: 0
@@ -6575,6 +6721,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUltimateShootEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1606920425
 GameObject:
   m_ObjectHideFlags: 0
@@ -13901,6 +14056,7 @@ Transform:
   - {fileID: 887847270}
   - {fileID: 2045777414}
   - {fileID: 1055530109}
+  - {fileID: 597018268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &556918901977372997

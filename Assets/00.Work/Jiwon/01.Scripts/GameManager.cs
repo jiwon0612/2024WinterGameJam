@@ -15,6 +15,7 @@ public class GameManager : MonoSingleton<GameManager>
     
     public UnityEvent<float> OnEnergyChanged;
     public UnityEvent OnEnergyMaxChanged;
+    public UnityEvent OnGameClearEvent;
 
     private void Awake()
     {
@@ -35,7 +36,12 @@ public class GameManager : MonoSingleton<GameManager>
         {
             OnEnergyMaxChanged?.Invoke();
         }
-        OnEnergyChanged?.Invoke(_currentEnergy);
+        OnEnergyChanged?.Invoke(_currentEnergy / maxEnergy);
+    }
+
+    public void GameClaer()
+    {
+        OnGameClearEvent?.Invoke();
     }
 
     public void HandleUIEvent()

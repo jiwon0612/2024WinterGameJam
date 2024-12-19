@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7103131940749984457}
   - {fileID: 4123123264189377772}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fcc983163fe2e4da427c9a21370153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 2351154605703853193}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
@@ -128,6 +128,7 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
+  isHeal: 0
 --- !u!1 &597813586543571840
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,7 +5151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetPos: {x: 0, y: 0, z: 0}
-  _speed: 3
+  _speed: 2
   _color: {r: 0, g: 0, b: 0, a: 0}
   OnDeadEvent:
     m_PersistentCalls:

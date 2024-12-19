@@ -11,7 +11,7 @@ public class AttackComponent : MonoBehaviour, IEntityComponent
     private Transform lunchPosition;
     private BulletSetSO _currentAttackPattern;
     [SerializeField]
-    private List<BulletSetSO> _attackPattern;
+    public List<BulletSetSO> _attackPattern;
     [SerializeField]
     private Vector3 offset;
 

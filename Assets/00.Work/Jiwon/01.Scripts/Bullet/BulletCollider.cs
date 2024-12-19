@@ -17,8 +17,13 @@ public class BulletCollider : MonoBehaviour
         if (((1 << other.gameObject.layer) & whatIsTarget) != 0)
         {
             if (other.TryGetComponent(out EntityUltimateComp comp))
-                comp.SetUltimateValue(energy);
-            
+            {
+                if (isHeal)
+                    comp.SetPlayerValue(energy);
+                else
+                    comp.SetUltimateValue(energy);
+            }
+
             OnDeadEvent?.Invoke();
             bullet.BulletDetected();
         }
