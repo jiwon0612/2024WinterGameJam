@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5137522941940697560}
   - component: {fileID: 6977675867268656638}
   m_Layer: 0
-  m_Name: StraghtAreaBullet
+  m_Name: StraghtBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,10 +79,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4813342742170864427}
+  - {fileID: 7632206557466481896}
   m_Father: {fileID: 5137522941940697560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8302576790139185944
+--- !u!1001 &6350017542057686235
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -153,16 +153,16 @@ PrefabInstance:
     - target: {fileID: 3613511615516851404, guid: fee4293f7f601b949b705f0b77de74d3,
         type: 3}
       propertyPath: energy
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
---- !u!4 &4813342742170864427 stripped
+--- !u!4 &7632206557466481896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3599713257690669107, guid: fee4293f7f601b949b705f0b77de74d3,
     type: 3}
-  m_PrefabInstance: {fileID: 8302576790139185944}
+  m_PrefabInstance: {fileID: 6350017542057686235}
   m_PrefabAsset: {fileID: 0}

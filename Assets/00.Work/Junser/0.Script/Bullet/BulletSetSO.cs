@@ -12,6 +12,7 @@ public class BulletSetSO : ScriptableObject
     public ShotType shotType;
     public int shotAmount;
     public string _poolNameSet;
+    private int _antiDamageShotCount = 0;
 
     [HideIfEnum("shotType", (int)ShotType.POINT, (int)ShotType.CICLE)]
     public Vector3 mainPoint;
@@ -61,7 +62,6 @@ public class BulletSetSO : ScriptableObject
     {
         Bullet singleAmmo = PoolManager.Instance.Pop(_poolNameSet) as Bullet;
         Vector3 position = new Vector3(Random.Range(shotClamp1.x, shotClamp2.x), Random.Range(shotClamp1.y, shotClamp2.y), Random.Range(shotClamp1.z, shotClamp2.z));
-        Debug.Log(position);
         singleAmmo.gameObject.SetActive(true);
         singleAmmo.Lunch(position, lunchPos);
     }
