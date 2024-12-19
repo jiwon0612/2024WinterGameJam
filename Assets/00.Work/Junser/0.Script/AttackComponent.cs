@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AttackComponent : MonoBehaviour, IEntityComponent
 {
@@ -17,6 +18,8 @@ public class AttackComponent : MonoBehaviour, IEntityComponent
 
     private int _antiDamageShotCount = 0;
     bool _eshot;
+
+    public UnityEvent OnAttack;
     public void Initialize(Entity entity)
     {
         
@@ -41,6 +44,7 @@ public class AttackComponent : MonoBehaviour, IEntityComponent
                 _eshot = false;
             }
             _currentAttackPattern.Shot(player.position+offset, lunchPosition.position, _eshot);
+            OnAttack?.Invoke();
             yield return new WaitForSeconds(_currentAttackPattern.shotDelay);
         }
         _antiDamageShotCount = 0;

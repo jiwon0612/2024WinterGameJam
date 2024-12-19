@@ -14,6 +14,7 @@ public class BewallTheEagleRunningOutState : EntityState
     public override void Enter()
     {
         base.Enter();
+        _boss.OnRunOut?.Invoke();
         Sequence sequence = DOTween.Sequence();
         sequence.Append(_boss.transform.DOMove(_boss._attackComponent.player.position - _boss.transform.position, _boss.runoutTime)
             .SetEase(Ease.InQuint).SetLoops(2, LoopType.Yoyo))
