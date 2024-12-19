@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class AttackComponent : MonoBehaviour, IEntityComponent
 {
-    [SerializeField]
-    Transform player;
+    public Transform player;
     [SerializeField]
     private Transform lunchPosition;
     private BulletSetSO _currentAttackPattern;

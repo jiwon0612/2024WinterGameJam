@@ -468,11 +468,11 @@ GameObject:
   - component: {fileID: 1145448478}
   - component: {fileID: 1145448484}
   - component: {fileID: 1145448483}
-  - component: {fileID: 1145448487}
   - component: {fileID: 1145448488}
   - component: {fileID: 1145448489}
   - component: {fileID: 1145448491}
   - component: {fileID: 1145448490}
+  - component: {fileID: 1145448492}
   m_Layer: 0
   m_Name: Attacker
   m_TagString: Untagged
@@ -502,6 +502,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ebd4131de5c7cb44086be5a808fc5cf3, type: 2}
   - {fileID: 11400000, guid: ebb8a47a267f5d046991370401414614, type: 2}
   - {fileID: 11400000, guid: 039dd3f5d20ba364a9fbfb0d23180b89, type: 2}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!65 &1145448479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -567,24 +568,6 @@ MonoBehaviour:
   maxYMove: 250
   xSpeed: 15
   ySpeed: 7.5
---- !u!114 &1145448487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145448477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcb398448f8d1e94a84f2960ce32325d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fsmSO: {fileID: 11400000, guid: 2d1f1639a20fc684b8816fd1299c3bec, type: 2}
-  _deathPosition: {x: 0, y: 0, z: 0}
-  minAttackDelay: 3
-  maxAttackDelay: 4
-  _attackComponent: {fileID: 1145448478}
-  time: 80
 --- !u!54 &1145448488
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -676,6 +659,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145448477}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1145448492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145448477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdad9bac943bb640901722c90074116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fsmSO: {fileID: 11400000, guid: 1af7c3a997e57d646ae6ca948a0172a5, type: 2}
+  _deathPosition: {x: 0, y: 0, z: 0}
+  minAttackDelay: 4
+  maxAttackDelay: 4
+  _attackComponent: {fileID: 1145448478}
+  time: 80
+  runoutTime: 6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
