@@ -15,7 +15,7 @@ MonoBehaviour:
   defaltBullet: {fileID: 6977675867268656638, guid: 21a279cd533458a4fb8b9ff1833d89e7,
     type: 3}
   shotType: 0
-  shotAmount: 5
+  shotAmount: 7
   _poolNameSet: StraghtBullet
   mainPoint: {x: 0, y: 0, z: 0}
   subPoint: {x: 0, y: 0, z: 0}

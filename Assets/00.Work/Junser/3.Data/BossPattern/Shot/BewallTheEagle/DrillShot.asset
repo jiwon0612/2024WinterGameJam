@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631c1d0b64dfe7f4c94c4d82d3dff892, type: 3}
   m_Name: DrillShot
   m_EditorClassIdentifier: 
-  defaltBullet: {fileID: 6977675867268656638, guid: 7d612f0a39335a64f98e9b642832ebea,
+  defaltBullet: {fileID: 6977675867268656638, guid: 677cd491bca57334987eaa7723257dcb,
     type: 3}
   shotType: 1
   shotAmount: 1

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631c1d0b64dfe7f4c94c4d82d3dff892, type: 3}
   m_Name: straght
   m_EditorClassIdentifier: 
-  defaltBullet: {fileID: 6977675867268656638, guid: 276963c81f099e340870dce265754f22,
+  defaltBullet: {fileID: 6977675867268656638, guid: 76a837af0c7b943409068906e7520495,
     type: 3}
   shotType: 0
-  shotAmount: 5
+  shotAmount: 7
   _poolNameSet: StraghtBullet
   mainPoint: {x: 0, y: 0, z: 0}
   subPoint: {x: 0, y: 0, z: 0}
-  shotDelay: 1
+  shotDelay: 0.75
   radius: 0

@@ -495,14 +495,17 @@ MonoBehaviour:
   player: {fileID: 927831093}
   lunchPosition: {fileID: 1145448482}
   _attackPattern:
-  - {fileID: 11400000, guid: 26f2c6c70b0cc9a498d059b9d08f77f8, type: 2}
-  - {fileID: 11400000, guid: 7e3f4b434baf1644ab6e62341eb1bed1, type: 2}
-  - {fileID: 11400000, guid: a62699c0bbad7df41b0313d7bd40be23, type: 2}
-  - {fileID: 11400000, guid: 79cbd7ee136825b468654e28b883e80a, type: 2}
-  - {fileID: 11400000, guid: ebd4131de5c7cb44086be5a808fc5cf3, type: 2}
-  - {fileID: 11400000, guid: ebb8a47a267f5d046991370401414614, type: 2}
-  - {fileID: 11400000, guid: 039dd3f5d20ba364a9fbfb0d23180b89, type: 2}
+  - {fileID: 11400000, guid: 980a715bff0c8cc47a6fe495ea31f0d3, type: 2}
+  - {fileID: 11400000, guid: f91a65f30c1fc9b439079c36733df180, type: 2}
+  - {fileID: 11400000, guid: 1e126a0bfdc1de64b9aaba7dbaaf2287, type: 2}
+  - {fileID: 11400000, guid: e6d4b3478cf51df4898bc58199ab022c, type: 2}
+  - {fileID: 11400000, guid: 7bf3d30b6b9dc584684f965c2c8fb2c8, type: 2}
+  - {fileID: 11400000, guid: a87fa487ee45c6746a2d5f60bce5c5a7, type: 2}
+  - {fileID: 11400000, guid: 3f394b8c987f2544ca39cf0d3ec32fe0, type: 2}
   offset: {x: 0, y: 0, z: 0}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1145448479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -676,6 +679,12 @@ MonoBehaviour:
   minAttackDelay: 4
   maxAttackDelay: 4
   _attackComponent: {fileID: 1145448478}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRunOut:
+    m_PersistentCalls:
+      m_Calls: []
   time: 80
   runoutTime: 6
 --- !u!1660057539 &9223372036854775807

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631c1d0b64dfe7f4c94c4d82d3dff892, type: 3}
   m_Name: Curve
   m_EditorClassIdentifier: 
-  defaltBullet: {fileID: 6473057022137235133, guid: ad7288197d722f744b57dcffb51d1f3b,
+  defaltBullet: {fileID: 6473057022137235133, guid: d7db8df3e993f8242a32005415f27ddd,
     type: 3}
   shotType: 1
-  shotAmount: 5
+  shotAmount: 7
   _poolNameSet: BezierBullet
   mainPoint: {x: 0, y: 0, z: 0}
   subPoint: {x: 0, y: 0, z: 0}
