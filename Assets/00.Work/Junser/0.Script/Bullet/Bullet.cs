@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour, Ipoolable
         ParticleSystem[] trailRenderers = GetComponentsInChildren<ParticleSystem>();
         _trailRenderer = trailRenderers.ConvertTo<List<ParticleSystem>>();
         if(_trailRenderer.Count > 0)
-        _defColor = _trailRenderer[0].startColor;
+            _defColor = _trailRenderer[0].startColor;
     }
     public void Lunch(Vector3 targetPos, Vector3 lunchPos, bool isEShot)
     {
@@ -56,7 +56,6 @@ public class Bullet : MonoBehaviour, Ipoolable
             foreach (ParticleSystem trailRenderer in _trailRenderer)
             {
                 trailRenderer.startColor = _color;
-
             }
         }
     }
@@ -101,7 +100,7 @@ public class Bullet : MonoBehaviour, Ipoolable
         foreach (Transform child in transform)
         {
             child.localPosition = Vector3.zero;
-
+        
         }
         foreach (ParticleSystem trailRenderer in _trailRenderer)
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -9,15 +10,38 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private UIInputSO uiInputSO;
     [SerializeField] private StopUI stopUI;
 
+    [SerializeField] private float maxEnergy;
+    private float _currentEnergy;
+    
+    public UnityEvent<float> OnEnergyChanged;
+    public UnityEvent OnEnergyMaxChanged;
+    public UnityEvent OnGameClearEvent;
+
     private void Awake()
     {
         uiInputSO.OnMenuEvent += HandleUIEvent;
+        _currentEnergy = 0;
     }
 
     protected override void OnDisable()
     {
         uiInputSO.OnMenuEvent -= HandleUIEvent;
         base.OnDisable();
+    }
+
+    public void SetEnergy(float energy)
+    {
+        _currentEnergy += energy;
+        if (_currentEnergy >= maxEnergy)
+        {
+            OnEnergyMaxChanged?.Invoke();
+        }
+        OnEnergyChanged?.Invoke(_currentEnergy / maxEnergy);
+    }
+
+    public void GameClaer()
+    {
+        OnGameClearEvent?.Invoke();
     }
 
     public void HandleUIEvent()

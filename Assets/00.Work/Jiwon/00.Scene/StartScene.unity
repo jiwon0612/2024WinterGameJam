@@ -506,6 +506,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a4e50502c634984088790f1260afa76, type: 3}
+--- !u!1 &995989176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995989177}
+  - component: {fileID: 995989178}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &995989177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995989176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1527810719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &995989178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995989176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcd834c679f8e44e9808495d8897907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolList: {fileID: 11400000, guid: ccd07eaec0304a449b8eb0aab6e6c380, type: 2}
 --- !u!1 &1402382610
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +697,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1892993642}
+  - {fileID: 995989177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1708683437
@@ -864,6 +910,7 @@ MonoBehaviour:
     type: 2}
   _sfxGroup: {fileID: -8168113202200902920, guid: 6ab6d860f3339da48863e28fa29bed7c,
     type: 2}
+  bgmData: {fileID: 11400000, guid: b84815e1efe7f264c930f4d94b81d179, type: 2}
 --- !u!1 &1937345755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1451,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StartUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5989145042580324205, guid: 5a4e50502c634984088790f1260afa76,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5989145042580324205, guid: 5a4e50502c634984088790f1260afa76,
         type: 3}

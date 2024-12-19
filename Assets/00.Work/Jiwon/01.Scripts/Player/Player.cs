@@ -23,6 +23,8 @@ public class Player : Entity
     public UnityEvent<float> OnFireValue;
     public UnityEvent OnDeadEvent;
     public UnityEvent OnShootEvent;
+    public UnityEvent OnUltimateShootEvent;
+    public UnityEvent OnDashEvent;
 
     public PlayerMover Mover { get; private set; }
     public PlayerRenderer Renderer { get; private set; }
@@ -33,6 +35,8 @@ public class Player : Entity
     
     public PlayerAiming Aiming { get; private set; }
     
+    public PlayerUltimateComp UltimateComp { get; private set; }
+    
     private ParticleSystem _particle;
     private Tween _rotateTween;
     private float _currentDashTime;
@@ -40,6 +44,8 @@ public class Player : Entity
 
     private bool _isDash;
     private bool _isReady;
+    private bool _isReadyAndFired;
+    public bool _isDead;
 
     protected override void AfterInitComp()
     {
@@ -48,6 +54,8 @@ public class Player : Entity
         _currentDashTime = dashCollTime;
         _currentFireTime = fireCollTime;
         _isReady = false;
+        _isReadyAndFired = true;
+        _isDead = false;
         
         UnFoldCollider = GetComponent<BoxCollider>();
         FoldCollider = GetComponent<CapsuleCollider>();
@@ -57,6 +65,7 @@ public class Player : Entity
         Renderer = GetCompo<PlayerRenderer>();
         AttackComp = GetCompo<AttackComponent>();
         Aiming = GetCompo<PlayerAiming>();
+        UltimateComp = GetCompo<PlayerUltimateComp>();
 
         input.OnRightDashEvent += TryRightDash;
         input.OnLeftDashEvent += TryLeftDash;
@@ -133,8 +142,13 @@ public class Player : Entity
         Renderer.TailRig.SetFold(true);
         Renderer.ChangeState(WingState.Fold);
         _isDash = true;
+        UltimateComp.IsCanHit = false;
+        
+        OnDashEvent?.Invoke();
+        
         Mover.Dash(1, () =>
         {
+            UltimateComp.IsCanHit = true;
             _isDash = false;
             Renderer.TailRig.SetFold(false);
             Renderer.ChangeState(WingState.Unfold);
@@ -149,8 +163,13 @@ public class Player : Entity
         Renderer.TailRig.SetFold(true);
         Renderer.ChangeState(WingState.Fold);
         _isDash = true;
+        UltimateComp.IsCanHit = false;
+        
+        OnDashEvent?.Invoke();
+        
         Mover.Dash(-1, () =>
         {
+            UltimateComp.IsCanHit = true;
             _isDash = false;
             Renderer.TailRig.SetFold(false);
             Renderer.ChangeState(WingState.Unfold);
@@ -165,20 +184,25 @@ public class Player : Entity
     
     public void Dead()
     {
+        _isDead = true;
         OnDeadEvent?.Invoke();   
     }
     
     private void TryFire()
     {
         if (_isDash) return;
+        if (!_isReadyAndFired) return;
+        if (_isReady)
+        {
+            OnUltimateShootEvent?.Invoke();
+            AttackComp._attackPattern[0] = ultimateBullet;
+            _isReadyAndFired = false;
+            AttackComp.Shot();
+            return;
+        }
         if (_currentFireTime < fireCollTime) return;
         _currentFireTime = 0;
 
-        if (_isReady)
-        {
-            
-            return;
-        }
         
         OnShootEvent?.Invoke();
         AttackComp.Shot();

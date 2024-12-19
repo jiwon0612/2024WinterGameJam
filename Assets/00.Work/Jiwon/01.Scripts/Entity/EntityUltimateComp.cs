@@ -31,4 +31,9 @@ public class EntityUltimateComp : MonoBehaviour, IEntityComponent
         }
         OnUltimateChange?.Invoke(_currentUltimateValue / maxUltimateValue);
     }
+
+    public void SetPlayerValue(float value)
+    {
+        GameManager.Instance.SetEnergy(value);
+    }
 }
