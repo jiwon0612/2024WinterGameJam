@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolName: BStraghtBullet
   prefab: {fileID: 4026667296363437275, guid: 76a837af0c7b943409068906e7520495, type: 3}
-  count: 0
+  count: 20

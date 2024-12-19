@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolName: BBezierSpiral
   prefab: {fileID: 4026667296363437275, guid: 8f7ab5b418b14cb43a9fba8cabe66bdc, type: 3}
-  count: 0
+  count: 20
