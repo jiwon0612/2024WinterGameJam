@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 631c1d0b64dfe7f4c94c4d82d3dff892, type: 3}
-  m_Name: AreaSnipe
+  m_Name: CurvedDrill
   m_EditorClassIdentifier: 
-  defaltBullet: {fileID: 6977675867268656638, guid: af56503f2717ce94ba5afd882e1a749b,
+  defaltBullet: {fileID: 6473057022137235133, guid: 7434616ce1925fb45a530f7bffd0e3f7,
     type: 3}
-  shotType: 2
-  shotAmount: 15
-  _poolNameSet: BezierBullet
-  mainPoint: {x: 0, y: 1, z: -7}
+  shotType: 1
+  shotAmount: 1
+  _poolNameSet: BezierSpiral
+  mainPoint: {x: 0, y: 0, z: 0}
   subPoint: {x: 0, y: 0, z: 0}
   shotDelay: 0
-  radius: 5
+  radius: 2
