@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6958366004174409376}
   - component: {fileID: 6683594425818023880}
   m_Layer: 0
-  m_Name: Warhead
+  m_Name: BewallWarhead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,10 +178,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198541533017677792, guid: 831508efc40187645bc17e16b4f37501,
         type: 3}
-      propertyPath: looping
-      value: 1
+      propertyPath: LightsModule.light
+      value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 198541533017677792, guid: 831508efc40187645bc17e16b4f37501,
+        type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198541533017677792, guid: 831508efc40187645bc17e16b4f37501,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198541533017677792, guid: 831508efc40187645bc17e16b4f37501,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114882831934998222, guid: 831508efc40187645bc17e16b4f37501, type: 3}
+    - {fileID: 108919548640080004, guid: 831508efc40187645bc17e16b4f37501, type: 3}
+    - {fileID: 54529894203811444, guid: 831508efc40187645bc17e16b4f37501, type: 3}
+    - {fileID: 135445653742605116, guid: 831508efc40187645bc17e16b4f37501, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

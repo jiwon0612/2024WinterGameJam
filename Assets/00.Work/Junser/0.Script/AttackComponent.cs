@@ -28,6 +28,7 @@ public class AttackComponent : MonoBehaviour, IEntityComponent
     {
         for(int i = 0; i < _currentAttackPattern.shotAmount; i++)
         {
+
             _currentAttackPattern.Shot(player.position+offset, lunchPosition.position);
             yield return new WaitForSeconds(_currentAttackPattern.shotDelay);
         }
