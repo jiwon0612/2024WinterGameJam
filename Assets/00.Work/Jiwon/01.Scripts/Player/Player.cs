@@ -152,6 +152,11 @@ public class Player : Entity
             Renderer.ChangeState(WingState.Unfold);
         });
     }
+
+    public void StartParticle()
+    {
+        _particle.Play();
+    }
     
     private void TryFire()
     {

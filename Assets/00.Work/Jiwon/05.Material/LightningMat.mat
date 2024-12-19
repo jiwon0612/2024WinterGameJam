@@ -52,7 +52,7 @@ Material:
     - _Speed: 0.22
     - _Stretch: 1.69
     m_Colors:
-    - _Tint: {r: 0.8396226, g: 1.1760352, b: 2, a: 1}
+    - _Tint: {r: 1.7471313, g: 0.08749531, b: 2.6498563, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3469892368307753866
 MonoBehaviour:
