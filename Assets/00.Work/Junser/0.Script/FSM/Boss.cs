@@ -8,6 +8,7 @@ public class Boss : Entity
 
     protected StateMachine _stateMachine;
 
+    [SerializeField] public float minAttackDelay, maxAttackDelay;
     public AttackComponent _attackComponent;
 
     public EntityState CurrentSTate => _stateMachine.currentState;

@@ -16,26 +16,32 @@ public class Bullet : MonoBehaviour,Ipoolable
     [SerializeField]
     protected float _speed;
 
+    private List<TrailRenderer> _trailRenderer = new List<TrailRenderer>();
+
     string Ipoolable.PoolName => gameObject.name;
 
     GameObject Ipoolable.ObjectPrefab => gameObject;
 
+    private void Awake()
+    {
+        TrailRenderer[] trailRenderers = GetComponentsInChildren<TrailRenderer>();
+        _trailRenderer = trailRenderers.ConvertTo<List<TrailRenderer>>();
+    }
     public void Lunch(Vector3 targetPos, Vector3 lunchPos)
     {
-        if (gameObject == null)
-            Instantiate(this);
         _targetPos = targetPos;
         _lunchPos = lunchPos;
         transform.position = _lunchPos;
         _basePos = Vector3.zero;
-        transform.position = _lunchPos;
         transform.LookAt(_targetPos);
+
         transform.rotation *= Quaternion.Euler(0, 0, Random.Range(0, 360f));
     }
 
     public void FixedUpdate()
     {
         MoveBullet();
+        ClacArrive();
     }
     protected virtual void MoveBullet()
     {
@@ -52,12 +58,26 @@ public class Bullet : MonoBehaviour,Ipoolable
     {
         _basePos += Vector3.forward * _speed;
     }
+
+    private void ClacArrive()
+    {
+        if (Util.InverseVectorLerp(_lunchPos, _targetPos, _basePos.z)>=1)
+        {
+            PoolManager.Instance.Push(this);
+        }
+    }
     void Ipoolable.ResetItem()
     {
+        gameObject.SetActive(false);
         transform.localPosition = Vector3.zero;
         foreach (Transform child in transform)
         {
             child.localPosition = Vector3.zero;
+            
+        }
+        foreach (TrailRenderer trailRenderer in _trailRenderer)
+        {
+            trailRenderer.Clear();
         }
     }
 #if UNITY_EDITOR

@@ -4,11 +4,12 @@ public class CurvedBullet : Bullet
 {
     private float bezierScale=1;
     private Vector3 way1Offset, way2Offset;
+    [SerializeField] float randomScale;
 
     private void OnEnable()
     {
-        way1Offset = Random.insideUnitSphere * bezierScale;
-        way2Offset = Random.insideUnitSphere * bezierScale;
+        way1Offset = Random.insideUnitSphere * bezierScale * randomScale;
+        way2Offset = Random.insideUnitSphere * bezierScale * randomScale;
         bezierScale = (_targetPos - _lunchPos).magnitude / 30;
     }
     protected override void SetRealPos()

@@ -13,7 +13,6 @@ public class ScreamingAttackState : EntityState
     {
         base.Enter();
         _boss._attackComponent.Shot();
-        Debug.Log("!!");
     }
 
     public override void Update()

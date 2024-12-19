@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.17708348, g: 0.22167979, b: 0.3039442, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -327,14 +327,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460720006}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.12741081, y: 0, z: 0, w: 0.99185}
+  m_LocalPosition: {x: 0, y: 7.5, z: -19.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 24692158}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.64, y: 0, z: 0}
 --- !u!114 &460720010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 1145448483}
   - component: {fileID: 1145448487}
   - component: {fileID: 1145448488}
+  - component: {fileID: 1145448489}
   m_Layer: 0
   m_Name: Attacker
   m_TagString: Untagged
@@ -496,6 +497,10 @@ MonoBehaviour:
   _attackPattern:
   - {fileID: 11400000, guid: 79cbd7ee136825b468654e28b883e80a, type: 2}
   - {fileID: 11400000, guid: ebb8a47a267f5d046991370401414614, type: 2}
+  - {fileID: 11400000, guid: 039dd3f5d20ba364a9fbfb0d23180b89, type: 2}
+  - {fileID: 11400000, guid: 26f2c6c70b0cc9a498d059b9d08f77f8, type: 2}
+  - {fileID: 11400000, guid: a62699c0bbad7df41b0313d7bd40be23, type: 2}
+  - {fileID: 11400000, guid: ebd4131de5c7cb44086be5a808fc5cf3, type: 2}
 --- !u!65 &1145448479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -624,6 +629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fsmSO: {fileID: 11400000, guid: 2d1f1639a20fc684b8816fd1299c3bec, type: 2}
+  minAttackDelay: 3
+  maxAttackDelay: 4
   _attackComponent: {fileID: 1145448478}
   time: 80
 --- !u!54 &1145448488
@@ -653,6 +660,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1145448489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145448477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8fdd961ff139e47b515dc7d0c49ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  radius: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

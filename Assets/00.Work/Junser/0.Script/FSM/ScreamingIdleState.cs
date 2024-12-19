@@ -14,8 +14,8 @@ public class ScreamingIdleState : EntityState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("!!");
         _lastCheckTime = Time.time;
+        _timer = Random.Range(_boss.minAttackDelay, _boss.maxAttackDelay);
     }
 
     public override void Update()
