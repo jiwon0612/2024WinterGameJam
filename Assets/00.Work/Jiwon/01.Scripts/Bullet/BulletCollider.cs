@@ -10,6 +10,7 @@ public class BulletCollider : MonoBehaviour
     [SerializeField] private LayerMask whatIsTarget;
     public float energy;
     public UnityEvent OnDeadEvent;
+    public bool isHeal;
 
     private void OnTriggerEnter(Collider other)
     {
