@@ -12,12 +12,18 @@ public class BulletCollider : MonoBehaviour
     public UnityEvent OnDeadEvent;
     public bool isHeal;
 
+    private void OnEnable()
+    {
+        isHeal = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (((1 << other.gameObject.layer) & whatIsTarget) != 0)
         {
             if (other.TryGetComponent(out EntityUltimateComp comp))
             {
+                Debug.Log("zz");
                 if (isHeal)
                     comp.SetPlayerValue(energy);
                 else

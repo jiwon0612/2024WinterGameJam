@@ -14492,6 +14492,7 @@ MonoBehaviour:
     type: 2}
   _sfxGroup: {fileID: -8168113202200902920, guid: 6ab6d860f3339da48863e28fa29bed7c,
     type: 2}
+  bgmData: {fileID: 11400000, guid: 575613659264433419d84a7bee825c1e, type: 2}
 --- !u!4 &2059572457
 Transform:
   m_ObjectHideFlags: 0
@@ -14993,7 +14994,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 16.88, y: 1, z: 4.35}
+  m_Size: {x: 16.88, y: 2, z: 7.5}
   m_Center: {x: 0, y: 0.1, z: -0.42}
 --- !u!136 &919132148720142863
 CapsuleCollider:
@@ -15014,8 +15015,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
-  m_Height: 8.65
+  m_Radius: 1.37
+  m_Height: 11.5
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -1.91}
 --- !u!81 &919132148720142864

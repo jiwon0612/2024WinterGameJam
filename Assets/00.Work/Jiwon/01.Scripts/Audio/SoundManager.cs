@@ -8,6 +8,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     [SerializeField] private AudioMixerGroup masterGroup;
     [SerializeField] private AudioMixerGroup _bgmGroup;
     [SerializeField] private AudioMixerGroup _sfxGroup;
+    [SerializeField] private SoundDataSO bgmData;
     
     private float _masterVolume;
     private float _bgmVolume;
@@ -22,6 +23,16 @@ public class AudioManager : MonoSingleton<AudioManager>
         SetMasterVolume(_masterVolume);
         SetBGMVolume(_bgmVolume);
         SetSFXVolume(_sfxVolume);
+        
+    }
+
+    private void Start()
+    {
+        if (bgmData != null)
+        {
+           var sound = PoolManager.Instance.Pop("SoundPlayer") as SoundPlayer;
+           sound.PlaySound(bgmData);
+        }
     }
 
     private void OnEnable()
