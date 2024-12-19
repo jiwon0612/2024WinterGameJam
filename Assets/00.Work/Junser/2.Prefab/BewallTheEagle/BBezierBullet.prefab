@@ -152,27 +152,7 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 6473057022137235133}
-    - target: {fileID: 3613511615516851404, guid: fee4293f7f601b949b705f0b77de74d3,
-        type: 3}
-      propertyPath: energy
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8368310963911383430, guid: fee4293f7f601b949b705f0b77de74d3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8569368508368780624, guid: fee4293f7f601b949b705f0b77de74d3,
-        type: 3}
-      propertyPath: LightsModule.light
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8483385595802354360, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
-    - {fileID: 7663612459558555247, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
-    - {fileID: 8479379959933841746, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
-    - {fileID: 8425875971806845298, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
-    - {fileID: 8488824611735778412, guid: fee4293f7f601b949b705f0b77de74d3, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

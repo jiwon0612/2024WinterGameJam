@@ -74,7 +74,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 0
-  energy: 0
+  energy: 2
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -174,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4118756434896196, guid: 30a2224334c85244595f52a7a83227d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4118756434896196, guid: 30a2224334c85244595f52a7a83227d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -225,6 +225,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198181203595706770, guid: 30a2224334c85244595f52a7a83227d1,
         type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 198181203595706770, guid: 30a2224334c85244595f52a7a83227d1,
+        type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -238,7 +243,12 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114733763777347194, guid: 30a2224334c85244595f52a7a83227d1, type: 3}
+    - {fileID: 2194952232682189485, guid: 30a2224334c85244595f52a7a83227d1, type: 3}
+    - {fileID: 108183858505715088, guid: 30a2224334c85244595f52a7a83227d1, type: 3}
+    - {fileID: 54656780710307248, guid: 30a2224334c85244595f52a7a83227d1, type: 3}
+    - {fileID: 135893600698140846, guid: 30a2224334c85244595f52a7a83227d1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

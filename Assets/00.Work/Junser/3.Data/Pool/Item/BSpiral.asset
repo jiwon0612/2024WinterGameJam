@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
   m_Name: BSpiral
   m_EditorClassIdentifier: 
-  poolName: BDrillingBullet
-  prefab: {fileID: 4026667296363437275, guid: 677cd491bca57334987eaa7723257dcb, type: 3}
+  poolName: BBezierSpiral
+  prefab: {fileID: 4026667296363437275, guid: 8f7ab5b418b14cb43a9fba8cabe66bdc, type: 3}
   count: 20
