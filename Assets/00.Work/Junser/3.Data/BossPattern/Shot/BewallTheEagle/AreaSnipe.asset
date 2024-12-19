@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 3}
   shotType: 2
   shotAmount: 20
-  _poolNameSet: BezierBullet
+  _poolNameSet: B BezierBullet
   mainPoint: {x: 0, y: 1, z: -7}
   subPoint: {x: 0, y: 0, z: 0}
   shotDelay: 0
